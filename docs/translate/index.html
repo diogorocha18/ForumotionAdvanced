@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web Page Translator | Forumotion Advanced</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://diogorocha18.github.io/ForumotionAdvanced/image/icon.ico">
+    <meta charset="UTF-8">
+    <meta name="language" content="en">
+    <meta name="description" content="A tool used to translate the Forumotion Advanced web page into other languages.">
+    <meta name="keywords" content="Web page, Translate, Forumotion Advanced" lang="en">
+    <meta property="og:title" content="Web Page Translator | Forumotion Advanced">
+    <meta property="og:site_name" content="diogorocha18.github.io">
+    <meta property="og:url" content="https://diogorocha18.github.io/ForumotionAdvanced/translate/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://diogorocha18.github.io/ForumotionAdvanced/image/fae.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@SethC1995">
+    <meta name="twitter:title" content="Web Page Translator | Forumotion Advanced">
+    <meta property="og:description" content="A tool used to translate the Forumotion Advanced web page into other languages.">
+    <meta name="title" content="Web Page Translator | Forumotion Advanced">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-93822776-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  </head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+        <h1>Web Page Translator</h1>
+        <p>This tool is used to help translate the Forumotion Advanced Web Page into other languages. Below are two columns ; On the left "Translations" is used to translate various texts that occur in the web page. On the right is a preview that will update as you translate the texts, so you get an idea of how the web page will look once translated. Give it a try by changing some texts in the Translations column below.<br><br>To learn more about translating this web page, check out <a href="https://github.com/diogorocha18/ForumotionAdvanced/wiki/Translating#user-content-translating-the-web-page">our wiki</a>!</p>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="column">
+        <div class="inner">
+          <h3>Translations</h3>
+          <div id="translations"></div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="inner">
+          <h3>Preview</h3>
+          <iframe id="webpage-preview"></iframe>
+        </div>
+      </div>
+
+      <div id="web-code-box" class="clear">
+        <div class="inner">
+          <h3>Translated Web Page Code</h3>
+          <p>The code below updates as you translate texts in the "Translations" column. Copy the code below when you're finished translating or to save for later. To update the translation on this page with an existing code, simply copy and paste your code into the textarea below an click "Update Translation" and you're ready to continue where you left off!</p>
+          <textarea id="webpage-code" onclick="this.select();">Loading...</textarea>
+          <div class="center">
+            <input id="update" class="button" type="button" value="Update Translations">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="clear">
+      <div class="left"><a href="https://diogorocha18.github.io/ForumotionAdvanced/">Home</a> | <a href="https://diogorocha18.github.io/ForumotionAdvanced/languages/">Languages</a> | <a href="https://diogorocha18.github.io/ForumotionAdvanced/sitemap/">Sitemap</a> | <a href="https://diogorocha18.github.io/ForumotionAdvanced/privacy/">Privacy</a></div>
+      <div class="right">Created By <a href="https://github.com/diogorocha18">Seth Clydesdale</a></div>
+    </div>
+
+    <script src="javascript.js"></script>
+  </body>
+</html>

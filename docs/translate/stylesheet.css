@@ -1,0 +1,157 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i);
+
+body {
+  color:#333;
+  font-size:13px;
+  font-family:"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color:#FFF;
+  padding:0;
+  margin:0;
+}
+
+a {
+  color:#369;
+  text-decoration:none;
+}
+
+a:hover { color:#69C; }
+a:active { color:#7AD; }
+
+.center { text-align:center; }
+.right { float:right; }
+.left { float:left; }
+
+.clear { clear:both; }
+.clear:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+#content { width:100%; }
+.column {
+  width:50%;
+  float:left;
+}
+
+.inner {
+  padding:3px;
+}
+
+h3, p { margin:6px 0; }
+
+h1, h3 {
+  color:#FFF;
+  text-align:center;
+  font-family:"Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:#69C;
+  padding:6px;
+}
+
+h1 {
+  margin:-3px -3px 6px -3px;
+  padding:12px;
+}
+
+.column h3 {
+  margin-bottom:0px;
+}
+
+#web-code-box h3 {
+  margin:6px -3px;
+  padding:12px;
+}
+
+.alias-row {
+  margin-bottom:12px;
+  padding-bottom:12px;
+  border-bottom:2px solid #CCC;
+}
+
+.alias-row:last-child {
+  border-bottom:none;
+  margin-bottom:0;
+}
+
+.alias {
+  padding:3px;
+  width:100%;
+}
+
+.alias:before, .alias:after {
+  font-weight:bold;
+  display:block;
+}
+
+.alias:before { content:"Original : "; }
+.alias:after {
+  content:"Translation : ";
+  margin-top:12px;
+}
+
+textarea {
+  font-size:13px;
+  font-family:"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:#EEE;
+  border:1px solid #CCC;
+  border-radius:5px;
+  padding:6px;
+  width:90%;
+  outline:none;
+}
+
+.translation { min-height:75px; }
+
+textarea:hover { border-color:#369; }
+textarea:focus { border-color:#69C; }
+
+#translations, #webpage-preview {
+  border:1px solid #CCC;
+  border-top-color:#69C;
+}
+
+#translations {
+  height:450px;
+  padding:0 3px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+#webpage-preview {
+  width:100%;
+  height:452px;
+  border-right-width:2px;
+  box-sizing:border-box;
+}
+
+#webpage-code {
+  height:200px;
+  display:block;
+  margin:0 auto;
+}
+
+.button {
+  color:#FFF;
+  font-size:18px;
+  font-weight:bold;
+  background:#69C;
+  padding:12px 24px;
+  margin:12px 6px;
+  border:none;
+  cursor:pointer;
+  outline:none;
+}
+
+.button:hover { background:#58B; }
+.button:focus { background:#47A; }
+
+#footer {
+  color:#FFF;
+  background-color:#345;
+  padding:18px;
+  margin-top:12px;
+}
+
+#footer a { color:#CCC; }
+#footer a:hover { color:#FFF; }
+#footer a:active { color:#FF8; }
