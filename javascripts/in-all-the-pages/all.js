@@ -819,7 +819,7 @@ $(function() {
 $(function() {
   if (_userdata.user_id == 1 && !my_getcookie('fae_update_alerted')) {
 
-    $.get('https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/javascripts/version-data.js', function(d) {
+    $.get('https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/javascripts/version-data.js', function(d) {
       var script = document.createElement('SCRIPT');
       script.type = 'text/javascript';
       script.text = d.replace(/forumactif_edge_version_data/, 'fae_github_version_data');
@@ -875,7 +875,7 @@ $(function() {
           if (window.sessionStorage && window.sessionStorage.faeLightSwitch) {
             $('head').append('<style type="text/css" id="fae_light-switch-css">' + window.sessionStorage.faeLightSwitch + '</style>');
           } else {
-            $.get('https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/css/dark-mode/' + fae_lightSwitchMode + '-mode.min.css', function (d) {
+            $.get('https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/css/dark-mode/' + fae_lightSwitchMode + '-mode.min.css', function (d) {
               $('head').append('<style type="text/css" id="fae_light-switch-css">' + d + '</style>');
 
               if (window.sessionStorage) {

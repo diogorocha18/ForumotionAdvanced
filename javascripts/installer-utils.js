@@ -5,7 +5,7 @@
 
   FAE.maintenance = false;
   FAE.cp_rev = '1.4.1';
-  FAE.raw = 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/';
+  FAE.raw = 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/';
   FAE.eGIF = 'https://illiweb.com/fa/empty.gif';
   FAE.delay = 1000;
   FAE.cp_lang = {};

@@ -138,7 +138,7 @@ if (FAE.board_lang == 'Italiano') {
     {
       info : 'Getting latest translation file...',
       type : 'GET',
-      url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/lang/Italian.js',
+      url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/lang/Italian.js',
       func : function (d) {
         FAE.script(d.replace('FAE.lang', 'FAE.lang_new'));
       }
@@ -164,7 +164,7 @@ if (FAE.board_lang == 'Romana') {
     {
       info : 'Getting latest translation file...',
       type : 'GET',
-      url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/lang/Romanian.js',
+      url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/lang/Romanian.js',
       func : function (d) {
         FAE.script(d.replace('FAE.lang', 'FAE.lang_new'));
       }

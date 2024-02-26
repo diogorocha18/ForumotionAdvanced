@@ -58,7 +58,7 @@ if (FAE.board_lang == 'Dutch') {
     {
       info : 'Getting new Dutch translation',
       type : 'GET',
-       url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/lang/Dutch.js',
+       url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/lang/Dutch.js',
       func : function(d) {
         FAE.script(d.replace('FAE.lang', 'FAE.lang_new'));
       }
@@ -102,7 +102,7 @@ if (FAE.board_lang == 'العربية') {
     {
       info : 'Getting new Arabic translation',
       type : 'GET',
-       url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/lang/Arabic.js',
+       url : 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/lang/Arabic.js',
       func : function(d) {
         FAE.script(d.replace('FAE.lang', 'FAE.lang_new'));
       }

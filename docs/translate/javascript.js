@@ -89,7 +89,7 @@ try {
   };
 
   // get the English webpage html
-  GET.open('GET', 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/docs/index.html', true);
+  GET.open('GET', 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/docs/index.html', true);
   GET.send();
 
   document.getElementById('update').onclick = function () {

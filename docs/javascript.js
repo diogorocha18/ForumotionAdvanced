@@ -100,7 +100,7 @@
       }
     };
 
-    GET.open('GET', 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/master/docs/languages/index.html', true);
+    GET.open('GET', 'https://raw.githubusercontent.com/diogorocha18/ForumotionAdvanced/development/docs/languages/index.html', true);
     GET.send();
   }
 
