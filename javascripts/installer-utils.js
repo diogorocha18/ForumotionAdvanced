@@ -1646,7 +1646,7 @@
               a, i, j;
 
           // WELCOME MESSAGES
-          FAE.log(FAE.cp_lang.welcome_message || 'Welcome to the FAE Control Panel! The FAE CP will allow you to install, update, translate, and customize Forumotion Advanced. To learn more about using the FAE CP, it is recommended that you read over the <a href="https://github.com/diogorocha18/ForumotionAdvanced/wiki/FAE-Control-Panel-Guide" target="_blank">Control Panel Guide</a> on the Github wiki.');
+          FAE.log(FAE.cp_lang.welcome_message || 'Welcome to the FAE Control Panel! The ForumotionAdvanced CP will allow you to install, update, translate, and customize your forum. To learn more about using the FAE CP, it is recommended that you read over the <a href="https://github.com/diogorocha18/ForumotionAdvanced/wiki/FAE-Control-Panel-Guide" target="_blank">Control Panel Guide</a> on the Github wiki.');
 
           if (!founder && !installed) {
             FAE.log(FAE.cp_lang.fae_err_not_founder || 'Only <a href="/u1">the founder</a> can access the installation action. Please contact them for assistance for installing Forumotion Advanced.', 'color:#E53;font-weight:bold;');

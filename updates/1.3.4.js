@@ -19,7 +19,6 @@ FAE.update_step = [
         to: FAE.lang_new.css
       }, d) : d;
 
-      // Atualizando o código CSS na próxima etapa
       FAE.step[FAE.index + 1].data.edit_code = cssCode;
     }
   },
