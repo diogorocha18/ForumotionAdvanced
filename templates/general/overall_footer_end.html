@@ -7,35 +7,32 @@
 		<div>
 			<div>
 				<div>
-
-<div>
+					<div>
+						<ul>
+							<li>
 <!-- END html_validation -->
-</div>
-          <div class="footer-links right">
-							<!-- BEGIN switch_footer_links -->
-									<!-- BEGIN footer_link -->
-										<!-- BEGIN switch_separator -->&nbsp;|&nbsp;<!-- END switch_separator -->
-										{switch_footer_links.footer_link.FOOTER_LINK_SEPARATOR}<a name="bottom" class="copyright" href="{switch_footer_links.footer_link.U_FOOTER_LINK_HREF}" rel="{switch_footer_links.footer_link.FOOTER_LINK_REL}" target="{switch_footer_links.footer_link.FOOTER_LINK_TARGET}" title="{switch_footer_links.footer_link.L_FOOTER_LINK_TITLE}">{switch_footer_links.footer_link.L_FOOTER_LINK_TEXT}</a>
-									<!-- END footer_link -->
-							<!-- END switch_footer_links -->
+							</li>
+						</ul>
+						<!-- BEGIN switch_footer_links -->
+						<ul>
+							<li>
+								<!-- BEGIN footer_link -->
+									<!-- BEGIN switch_separator -->&nbsp;|&nbsp;<!-- END switch_separator -->
+									{switch_footer_links.footer_link.FOOTER_LINK_SEPARATOR}<a name="bottom" class="copyright" href="{switch_footer_links.footer_link.U_FOOTER_LINK_HREF}" rel="{switch_footer_links.footer_link.FOOTER_LINK_REL}" target="{switch_footer_links.footer_link.FOOTER_LINK_TARGET}" title="{switch_footer_links.footer_link.L_FOOTER_LINK_TITLE}">{switch_footer_links.footer_link.L_FOOTER_LINK_TEXT}</a>
+								<!-- END footer_link -->
+							</li>
+						</ul>
+						<!-- END switch_footer_links -->
 					</div>
-          <div class="clear"></div>
-
-					  <div class="copyright">
-					  	<strong>{ADMIN_LINK}</strong>
-					  </div>
+					<br />
+					<p class="center">
+						<strong>{ADMIN_LINK}</strong>
+					</p>
 				</div>
 				{PROTECT_FOOTER}
 			</div>
 		</div>
 	</div>
-</div>
-<div id="footer_end" class="color-secondary">
-  <div id="footer_end_inner">
-    <div id="footer_end_left" class="footer_end_column"><a href="/forum">{L_HOME}</a></div>
-    <div id="footer_end_center" class="footer_end_column"><a href="#top" title="Back to top" id="back_top_top"><i class="fa fa-chevron-up"></i></a></div>
-    <div id="footer_end_right" class="footer_end_column"><a href="https://github.com/diogorocha18/ForumotionAdvanced/wiki/Suggestions-and-Feedback" title="Help improve Forumotion Advanced" target="_blank">Submit Feedback</a> | <a href="https://diogorocha18.github.io/ForumotionAdvanced/" target="_blank">Forumotion Advanced</a> v<span id="fae_version">1.3.3</span></div>
-  </div>
 </div>
 
 <!-- BEGIN switch_facebook_login -->
@@ -49,7 +46,6 @@
             "data-show-faces": "{switch_facebook_login.FB_SHOW_FACES}",
             "data-auto-logout-link": "{switch_facebook_login.FB_AUTO_LOGOUT}"
         });
-
         $('div.fb-login-button, span.fb-login-button').each(function() {
             if(typeof $(this).attr('onlogin') == typeof undefined || $(this).attr('onlogin') === false) {
                 $(this).attr('onlogin', '{switch_facebook_login.FB_ONLOGIN}');
@@ -58,30 +54,82 @@
                 $(this).html('{switch_facebook_login.FB_LABEL}');
             }
         });
-
-
+        
         FB.init({
-            appId  : "{switch_facebook_login.FB_APP_ID}",
+            appId   : "{switch_facebook_login.FB_APP_ID}",
             cookie  : {switch_facebook_login.FB_COOKIE},
-            xfbml  : {switch_facebook_login.FB_XFBML},
-            oauth  : {switch_facebook_login.FB_OAUTH},
+            xfbml   : {switch_facebook_login.FB_XFBML},
+            oauth   : {switch_facebook_login.FB_OAUTH},
             version : '{switch_facebook_login.FB_VERSION}'
         });
-
+        
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
+                js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/{switch_facebook_login.FB_LOCAL}/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
     });
     function onLoginFB() {
         window.location.replace('{switch_facebook_login.FB_ONLOGIN_URL}')
     }
 </script>
 <!-- END switch_facebook_login -->
+<!-- BEGIN switch_topicit_connect -->
+<script type="text/javascript">
+    $(document).ready( function() {
+        $('div.ti-connect').attr({
+            'data-loc' : '{switch_topicit_connect.TOPICIT_URL}',
+            'data-login' : '{switch_topicit_connect.BOARD_LOGIN}',
+            'data-version' : '{switch_topicit_connect.TOPICIT_VERSION}',
+            'data-lang' : '{switch_topicit_connect.BOARD_LANG}'
+        });
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "{switch_topicit_connect.TOPICIT_ENDPOINT}";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'topicit-connect'));
+    });
+</script>
+<!-- END switch_topicit_connect -->
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.vote-plus, .vote-minus').on('click', function(e) {
+    e.preventDefault();
+    var post_id = $(this).data('post-id');
+    var $this = $(this);
+    $.ajax({
+      url: '/post?t=35',
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        post_id: post_id,
+        action: $this.hasClass('vote-plus') ? 'like' : 'dislike'
+      },
+      success: function(response) {
+        if (response.success) {
+          var count = response.count;
+          var $post = $this.closest('.post');
+          $post.find('.numberthank').text(count);
+          if (response.action === 'like') {
+            var user = response.user;
+            $post.find('.tennguoithank').append('<a href="/u' + user.id + '">' + user.name + '</a>');
+          }
+        } else {
+          alert('Ocorreu um erro ao registrar o like/dislike. Tente novamente mais tarde.');
+        }
+      },
+      error: function() {
+        alert('Ocorreu um erro ao conectar com o servidor. Tente novamente mais tarde.');
+      }
+    });
+  });
+});
+</script>
 
 <script type="text/javascript">
 //<![CDATA[

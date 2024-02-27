@@ -1,115 +1,227 @@
-<ul id="search-links" class="linklist">
-  	<li><a href="/latest">{L_LASTPOST}</a>&nbsp;&bull;&nbsp;</li>
-	<!-- BEGIN switch_user_logged_in -->
-	<li><a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>&nbsp;&bull;&nbsp;</li>
-	<li><a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>&nbsp;&bull;&nbsp;</li>
-	<!-- END switch_user_logged_in -->
-	<li><a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a></li>
-	<!-- BEGIN switch_user_logged_in -->
-	<li class="right"><a href="{U_MARK_READ}" accesskey="m">{L_MARK_FORUMS_READ}</a></li>
-	<!-- END switch_user_logged_in -->
-</ul>
+<!-- BEGIN switch_user_logged_in -->
+<div class="chatContainer">
+  <div class="chatHeader">
+    ShoutBox (Beta)
+  </div>
+  <ul id="widget">
+    Loading..
+  </ul>
 
+<div id="typingStatus" class="typing-status"></div>
+
+
+  <div id="messageInputArea">
+    <input type="text" id="messageInput" />  
+    <button id="sendMessageButton">Enviar</button>
+  </div>
+</div>
+ <!-- END switch_user_logged_in -->
+
+<nav class="ipsBreadcrumb ipsBreadcrumb_top ipsFaded_withHover">
+	
+<!-- BEGIN switch_user_logged_in -->
+	<ul class="ipsList_inline ipsPos_right">
+		
+		
+		
+			<li>
+				<a style="color: #666!important;" data-action="markSiteRead" class="ipsType_light" data-controller="core.front.core.markRead" href="/?mark=forums" title="Marcar Como Lido" data-ipstooltip=""><i class="fa fa-check"></i> Mark as read</a>
+			</li>
+		
+	</ul>
+ <!-- END switch_user_logged_in -->
+  
+	<ul data-role="breadcrumbList">
+		<li>
+			<a title="Home" href="/">
+				<span><i class="fa fa-home"></i> Home <i class="fa fa-angle-right"></i></span>
+			</a>
+		</li>
+	</ul>
+</nav>
+<div class="main">
 <!-- BEGIN catrow -->
 	<!-- BEGIN tablehead -->
-  <div class="forum-category">
-    <noscript>
-      <div class="title">{catrow.tablehead.L_FORUM}</div>
-      <div id="{catrow.tablehead.ID}">
-    </noscript>
-    <script type="text/javascript">(function() {
-      var state = my_getcookie('fae_{catrow.tablehead.ID}') == 'hidden';
-      document.write('<div class="title ' + ( state ? 'c_show' : 'c_hide') + '" onclick="fae_toggle_category(this);">{catrow.tablehead.L_FORUM}</div><div id="{catrow.tablehead.ID}" ' + (state ? 'style="display:none;"' : '') + '>');
-    }());</script>
+		<div class="main-head" style="margin-top: 10px!important;">
+			<div class="page-title">{catrow.tablehead.L_FORUM}</div>
+		</div>
+		<div class="main-content">
+			<table cellspacing="0" class="table">
+				<tbody class="statused">
 	<!-- END tablehead -->
 
-	  <!-- BEGIN forumrow -->
-    <div class="forum-block color-primary">
-      <div class="forum-block-inner">
-        <div class="forum-status" title="{catrow.forumrow.L_FORUM_FOLDER_ALT}" style="background-image:url('{catrow.forumrow.FORUM_FOLDER_IMG}');">
-        </div>
+	<!-- BEGIN forumrow -->
+ <tr data-fname="{catrow.forumrow.FORUM_NAME}" data-fhref="{catrow.forumrow.U_VIEWFORUM}">
+                        <!-- Column for Icons -->
+<!-- <td class="tc_icon">
+ <span class="status">
+ <img title="{catrow.forumrow.L_FORUM_FOLDER_ALT}" src="{catrow.forumrow.FORUM_FOLDER_IMG}" alt="{catrow.forumrow.L_FORUM_FOLDER_ALT}" />
+ </span>
+ </td>-->
+   <td class="tc3 {catrow.forumrow.FORUM_FOLDER_IMG}">
+           <div class="ipsForum_status"></div>
+   </td>
+                        
+                        <!-- Column for Title & Description -->
+ <td class="tcl"> <!-- Backup style="padding-right: {catrow.forumrow.INC_LEVEL_RIGHT}; padding-left: {catrow.forumrow.INC_LEVEL_LEFT};"> -->
+ <!-- Backup
+ <span class="status" style="margin-right: -{catrow.forumrow.INC_WIDTH_ICON}; margin-left: -{catrow.forumrow.INC_WIDTH_ICON};">
+ <img title="{catrow.forumrow.L_FORUM_FOLDER_ALT}" src="{catrow.forumrow.FORUM_FOLDER_IMG}" alt="{catrow.forumrow.L_FORUM_FOLDER_ALT}" />
+ </span>
+ -->
+ <h{catrow.forumrow.LEVEL} class="hierarchy" style="font-size: 18px!important;">
+                                <a href="{catrow.forumrow.U_VIEWFORUM}" style="color:#1a212cdb;" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
+                            </h{catrow.forumrow.LEVEL}>
+ <br />
+                            <div class="desc ipsType_small" style="word-wrap: break-word; overflow-wrap: break-word; line-height: 2.0; color: rgb( var(--theme-text_light) );">
+ {catrow.forumrow.FORUM_DESC}
+ <!-- BEGIN switch_moderators_links -->
+ <br />
+ {catrow.forumrow.switch_moderators_links.L_MODERATOR}{catrow.forumrow.switch_moderators_links.MODERATORS}
+ <!-- END switch_moderators_links -->
+ {catrow.forumrow.L_LINKS}{catrow.forumrow.LINKS}
+ <strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}
+ </div>
+ </td>
+ <!-- Backup <td class="tc2"></td> -->
+                        
+                        <!-- Column for Topic info -->
+ <td class="tc3 ipsType_small">
+                            <strong id="index_topics">{catrow.forumrow.TOPICS}</strong> topics<br />
+                            <strong id="index_replies">{catrow.forumrow.POSTS}</strong> posts
+                        </td>
+                        
+                        <!-- Column for Last Post -->
+ <td class="tcr" data-flag_p="{catrow.forumrow.FORUM_NAME}">
+ <!-- Backup
+ <span>
+ <a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">{catrow.forumrow.LATEST_TOPIC_NAME}</a><br />
+ {catrow.forumrow.USER_LAST_POST}
+ </span>
+ -->
+   <!-- BEGIN avatar -->
+<span class="ipsUserAvatar">{catrow.forumrow.avatar.LAST_POST_AVATAR}</span>
+<!-- END avatar -->
 
-        <div class="forum-info">
+                            <!-- BEGIN switch_topic_title -->
+ <ul class="last_post ipsType_small" style="margin-left: 3px;">
+   <li><a id="topic_title" title="{catrow.forumrow.LATEST_TOPIC_TITLE}" href="{catrow.forumrow.U_LATEST_TOPIC}">{catrow.forumrow.LATEST_TOPIC_NAME}</a></li>
 
-          <h{catrow.forumrow.LEVEL} class="hierarchy">
-            <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
-          </h{catrow.forumrow.LEVEL}>
-          <div class="forum-description">
-            {catrow.forumrow.FORUM_DESC}
-            <div class="clear"></div>
-          </div>
+                                <li id="user_info">By <a class="url fn name" href="" title=""><span itemprop="name"></span></a></li>
 
-          <!-- BEGIN switch_moderators_links -->
-            <div class="forum-moderators">
-              {catrow.forumrow.switch_moderators_links.L_MODERATOR}{catrow.forumrow.switch_moderators_links.MODERATORS}
-            </div>
-          <!-- END switch_moderators_links -->
-          <div class="sub-forum-links">
-            {catrow.forumrow.L_LINKS}{catrow.forumrow.LINKS}
-            <strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}
-          </div>
-
-        </div>
-
-        <div class="forum-stats">
-
-          <div class="topics">
-            <span class="number">{catrow.forumrow.TOPICS}</span><br/>
-            <small>{L_TOPICS}</small>
-          </div>
-
-          <div class="posts">
-            <span class="number">{catrow.forumrow.POSTS}</span><br/>
-            <small>{L_POSTS}</small>
-          </div>
-
-        </div>
-
-        <div class="forum-lastpost">
-
-          <!-- BEGIN ads -->
-          							<span class="AD_LastPA">
-                                          <span class="lastpost-avatar"><img src="{catrow.forumrow.ads.IMG}" alt="{catrow.forumrow.ads.TITLE}" /></span>
-                                          <span class="AD_LastInfos">
-                                              <b><a href="{catrow.forumrow.ads.LINK}">{catrow.forumrow.ads.TITLE}</a></b><br />
-                                              {catrow.forumrow.ads.DATE}<br />
-                                              {catrow.forumrow.ads.LOCATION}
-                                          </span>
-          							</span>
-          <!-- END ads -->
-
-          <!-- BEGIN avatar -->
-          <span class="lastpost-avatar">{catrow.forumrow.avatar.LAST_POST_AVATAR}</span>
-          <!-- END avatar -->
-
-          <span>
-            <!-- BEGIN switch_topic_title -->
-            <a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}">{catrow.forumrow.LATEST_TOPIC_NAME}</a><br />
-            <!-- END switch_topic_title -->
-            {catrow.forumrow.USER_LAST_POST}
-          </span>
-
-        </div>
-
-        <div class="clear"></div>
-      </div>
-    </div>
-	  <!-- END forumrow -->
+   				<li class="desc lighter blend_links"><a id="post_date" href="{catrow.forumrow.U_LATEST_TOPIC}" title="Visualizar último post"></a></li>
+ </ul>
+                            <!-- END switch_topic_title -->
+                            <span id="user_last_post" style="display: none;">{catrow.forumrow.USER_LAST_POST}</li>
+ </td>
+ </tr>
+	<!-- END forumrow -->
 
 	<!-- BEGIN tablefoot -->
-    <div class="clear"></div>
-    </div>
-  </div>
+				</tbody>
+			</table>
+		</div>
 	<!-- END tablefoot -->
 <!-- END catrow -->
-
-<!-- BEGIN switch_on_index -->
-<ul id="stat-links" class="linklist">
-	<li><a href="{U_TODAY_ACTIVE}">{L_TODAY_ACTIVE}</a>&nbsp;&bull;&nbsp;</li>
-	<li><a href="{U_TODAY_POSTERS}">{L_TODAY_POSTERS}</a>&nbsp;&bull;&nbsp;</li>
-	<li class="last"><a href="{U_OVERALL_POSTERS}">{L_OVERALL_POSTERS}</a></li>
-	<!-- BEGIN switch_delete_cookies -->
-	<li class="right"><a href="{switch_on_index.switch_delete_cookies.U_DELETE_COOKIES}" rel="nofollow">{switch_on_index.switch_delete_cookies.L_DELETE_COOKIES}</a></li>
-	<!-- END switch_delete_cookies -->
-</ul>
-<!-- END switch_on_index -->
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    var target = $('td.tcr');
+    target.each(function(index){
+        var oThis = $(this);
+        if (oThis.attr('data-flag_p').indexOf('Developers Chat') == -1) {
+            var $topic_title = oThis.find('#topic_title');
+            /* If no posts... */
+            if ($topic_title.text() == '') {
+                $topic_title.addClass('desc lighter blend_links no_posts_d').text('No posts here yet');
+                oThis.find('#user_info').css('display', 'none');
+            } else {
+                /* Reads the forumeiros lastpost info... */
+                var $user_last_post = oThis.find('#user_last_post');
+                var $user_photo = oThis.find('#user_photo');
+                var last_post_date = $user_last_post.html().split('<br>')[0];
+                var $user_info = $user_last_post.find('a.gensmall');
+                var $post_date = oThis.find('#post_date');
+                var last_post = $user_last_post.find('.last-post-icon').attr('href');
+                var UserURL = $user_info.attr('href');
+                var Removed = $user_info.text();
+                var UserIMG = sessionStorage.getItem(UserURL); /* Gets the avatar saved in local storage */
+                /* Populate LastPost Info! */
+                $post_date.text(last_post_date);
+                $post_date.attr('href', last_post);
+                $user_info = oThis.find('#user_info').find('a');
+                $user_info.attr('href', UserURL);
+                $user_info.find('span').text(Removed);
+                $user_photo.attr('href', UserURL);
+                $topic_title.attr('href', last_post);
+                /* If avatar alread saved, then no request member profile! */
+                if(UserIMG) {
+                    $user_photo.find('img').attr('src', UserIMG);
+                } else {
+                    /* if not, then only request per session!!! */
+                    $.get(UserURL, function(data){
+                        var profile_img = $('#profile_tabs p img', data).attr('src');
+                        
+                        if (profile_img !== undefined) {
+                            $user_photo.find('img').attr('src', profile_img);
+                            /* Saves the member avatar in local storage */
+                            sessionStorage.setItem(UserURL, profile_img);
+                        } else {
+                            /* Saves the default avatar in local storage */
+                            sessionStorage.setItem(UserURL, 'https://i.servimg.com/u/f78/18/17/62/92/defaul10.png');
+                        }
+                    });
+                }
+            }
+        } else {
+            oThis.html('<ul class="last_post ipsType_small"><li></li><li class="desc lighter blend_links" style="font-style:italic;" id="user_info"><em>Protected Fórum!</em></li><li class="desc lighter blend_links"></li></ul>');
+        }        
+    });
+    //]]>
+</script>
+  <style>
+    .tcr .ipsUserAvatar {
+    float: left;
+    margin-top: 3px;
+}
+.ipsUserAvatar img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    /* border: 1px solid #D5D5D5; */
+    /* box-shadow: 0 2px 2px rgb(0 0 0 / 10%); */
+    /* padding: 1px; */
+    height: 40px;
+    margin: 0 7px;
+    /* padding: 1px; */
+    width: 40px;
+}
+.ipsUserAvatar_mini {
+    height: 30px!important;
+    width: 30px!important;
+    border: 1px solid #d5d5d5;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
+}
+.desc.lighter, .desc.lighter.blend_links a {
+    color: #A4A4A4;
+}
+.no_posts_d {
+      color: #a4a4a4a6!important;
+      font-style: italic;
+}
+  </style>
+<script>
+      $(function(){$('.main-head:has(.page-title)').prepend('<a class="collapse tcatCollapse" id="collapse_c_cat1" href="#top" style="visibility:hidden;float: right;margin-top: -3px;"><img src="https://i.imgur.com/d7jXnmJ.png" alt=""></a>');$('.main-head:has(.page-title)').mouseover(function(){$(this).find('a.collapse[id]').css('visibility','visible')});$('.main-head:has(.page-title)').mouseout(function(){$(this).find('a.collapse[id]').css('visibility','hidden')});$('.main-head a.collapse[id]').click(function(e){e.preventDefault()});$('.main-head a.collapse[id]').attr('onclick'," if($(this).closest('.main-head').next('.main-content:first').css('display')=='none') {my_setcookie($(this).closest('.main-head').find('.page-title').text()+'_ct','0',10,0); $(this).closest('.main-head').next('.main-content:first').slideDown(500);$(this).find('img').attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKlBMVEX///8dNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlJSZn16ip3k6/JkLhjLAAAACnRSTlMACkVWWZerzdXxurlICgAAAF5JREFUCNdjYGAQDp9ZasgABExZq1atWqYAZHmsAoEWoFAXmLVCgUFsFQQkMlhBWYsZoqCspQxVUNZyhlmrVt29e2fVqpUg1pkzp0EshCxCB8IUhMkI2xAuQHIVzKUAh8ZUIpv14jgAAAAASUVORK5CYII=');$(this).closest('.main-head');$(this).closest('.main-head').removeClass('collapsed')} else {my_setcookie($(this).closest('.main-head').find('.page-title').text()+'_ct','1',10,0); $(this).closest('.main-head').next('.main-content:first').slideUp(500);$(this).find('img').attr('src','https://i.servimg.com/u/f78/18/17/62/92/cat_ma10.png'); $(this).closest('.main-head').addClass('collapsed');}");$(document).ready(function(){$('.main-head a.collapse[id]').closest('.main-head').each(function(){if(my_getcookie($(this).find('.page-title').text()+'_ct')=='1'){$(this).next('.main-content:first').css('display','none');$(this).find('a.collapse[id] img').attr('src','https://i.servimg.com/u/f78/18/17/62/92/cat_ma10.png');$(this).closest('.main-head').addClass('collapsed')}else{$(this).next('.main-content:first').css('display','block');$(this).find('a.collapse[id] img').attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKlBMVEX///8dNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlIdNlJSZn16ip3k6/JkLhjLAAAACnRSTlMACkVWWZerzdXxurlICgAAAF5JREFUCNdjYGAQDp9ZasgABExZq1atWqYAZHmsAoEWoFAXmLVCgUFsFQQkMlhBWYsZoqCspQxVUNZyhlmrVt29e2fVqpUg1pkzp0EshCxCB8IUhMkI2xAuQHIVzKUAh8ZUIpv14jgAAAAASUVORK5CYII=');$(this).closest('.main-head').removeClass('collapsed')}})})});
+  </script>
+  
+  <!-- BEGIN switch_user_logged_out -->
+  <style>
+    li#user_info {
+      display: none;
+    }
+  </style>
+  <!-- END switch_user_logged_out -->
+  
+  
+  

@@ -1,140 +1,280 @@
 <!-- BEGIN topics_list_box -->
 <!-- BEGIN row -->
 <!-- BEGIN header_table -->
-	<!-- BEGIN multi_selection -->
-		<script type="text/javascript">
-
-		function check_uncheck_main_{topics_list_box.row.header_table.BOX_ID}()
-		{
-			alert('MAIN');
-
-			var all_checked = true;
-
-			for (i = 0; (i < document.{topics_list_box.FORMNAME}.elements.length) && all_checked; i++)
-			{
-				if (document.{topics_list_box.FORMNAME}.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}')
-				{
-					all_checked = document.{topics_list_box.FORMNAME}.elements[i].checked;
-				}
-			}
-
-			document.{topics_list_box.FORMNAME}.all_mark_{topics_list_box.row.header_table.BOX_ID}.checked = all_checked;
+<!-- BEGIN multi_selection -->
+<script type="text/javascript">
+	function check_uncheck_main_ {
+	  topics_list_box.row.header_table.BOX_ID
+	}() {
+	  var all_checked = true;
+	  for (i = 0;
+		(i < document. {
+		  topics_list_box.FORMNAME
+		}.elements.length) && all_checked; i++) {
+		if (document. {
+			topics_list_box.FORMNAME
+		  }.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}') {
+		  all_checked = document. {
+			topics_list_box.FORMNAME
+		  }.elements[i].checked;
 		}
-
-		function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}()
-		{
-			alert('ALL');
-
-			for (i = 0; i < document.{topics_list_box.FORMNAME}.length; i++)
-			{
-				if (document.{topics_list_box.FORMNAME}.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}')
-				{
-					document.{topics_list_box.FORMNAME}.elements[i].checked = document.{topics_list_box.FORMNAME}.all_mark_{topics_list_box.row.header_table.BOX_ID}.checked;
-				}
-			}
+	  }
+	  document. {
+		topics_list_box.FORMNAME
+	  }.all_mark_ {
+		topics_list_box.row.header_table.BOX_ID
+	  }.checked = all_checked;
+	}
+  
+	function check_uncheck_all_ {
+	  topics_list_box.row.header_table.BOX_ID
+	}() {
+	  for (i = 0; i < document. {
+		  topics_list_box.FORMNAME
+		}.length; i++) {
+		if (document. {
+			topics_list_box.FORMNAME
+		  }.elements[i].name == '{topics_list_box.FIELDNAME}[]{topics_list_box.row.header_table.BOX_ID}') {
+		  document. {
+			topics_list_box.FORMNAME
+		  }.elements[i].checked = document. {
+			topics_list_box.FORMNAME
+		  }.all_mark_ {
+			topics_list_box.row.header_table.BOX_ID
+		  }.checked;
 		}
-
-		</script>
-	<!-- END multi_selection -->
-
-	<div class="forum-category topicslist announcement">
-	  <div class="title">
-		  <!-- BEGIN multi_selection -->
-			<input onclick="check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}();" type="checkbox" name="all_mark_{topics_list_box.row.header_table.BOX_ID}" value="0" />
-			<!-- END multi_selection -->
-			{topics_list_box.row.L_TITLE}
-		</div>
-
-<!-- END header_table -->
-
-<!-- BEGIN header_row -->
-		<div class="title">{topics_list_box.row.L_TITLE}</div>
-<!-- END header_row -->
-
-<!-- BEGIN topic -->
-
-	<!-- BEGIN table_sticky -->
+	  }
+	}
+  </script>
+  <!-- END multi_selection -->
+  <!-- BEGIN multi_selection -->
+  <input onclick="check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}();" type="checkbox" name="all_mark_{topics_list_box.row.header_table.BOX_ID}" value="0" />
+  <!-- END multi_selection -->
+  <br>
+  <div style="border: 1px solid #e0e0e0; box-shadow: 0px 1px 0px rgba(0,0,0,0.1); border-radius: 3px;" class="ipsButtonBar ipsPad_half ipsClearfix ipsClear">
+	<ul class="ipsButtonRow ipsPos_right ipsClearfix ipsResponsive_hidePhone">
+	  <li>
+		<a href="?mark=topics" title="Mark all topics in this forum as read" data-action="markForumRead">
+		  <i class="fa fa-check"></i> Mark forum as read </a>
+	  </li>
+	  <li>
+		<a href="#elSortByMenu_menu" id="elSortByMenu_1d74241c958e8dadf622e2df5a8bdcfa" data-role="sortButton" data-ipsmenu="" data-ipsmenu-activeclass="ipsButtonRow_active" data-ipsmenu-selectable="radio" class="">Shot by <i class="fa fa-caret-down"></i>
+		</a>
+	  </li>
+	</ul>
   </div>
-	<div class="forum-category topicslist">
-	  <div class="title">
-		<!-- BEGIN multi_selection -->
-		<input onclick="check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}();" type="checkbox" name="all_mark_{topics_list_box.row.header_table.BOX_ID}" value="0" />
-		<!-- END multi_selection -->
-		{topics_list_box.row.topic.table_sticky.L_TITLE}
-	</div>
-	<!-- END table_sticky -->
-    <div class="forum-block color-primary">
-      <div class="forum-block-inner">
-      	<!-- BEGIN single_selection -->
-  			<span class="merge-box"><input type="radio" name="{topics_list_box.FIELDNAME}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} /></span>
-  			<!-- END single_selection -->
-
-        <div class="forum-status" title="{topics_list_box.row.L_TOPIC_FOLDER_ALT}" style="background-image:url('{topics_list_box.row.TOPIC_FOLDER_IMG}');">
-        </div>
-
-        <div class="forum-info" {topics_list_box.row.ICON}>
-        	<span class="newpost-img">{topics_list_box.row.NEWEST_POST_IMG}</span>
-  				<span class="participated">{topics_list_box.row.PARTICIPATE_POST_IMG}</span>
-  			  <span class="topic-type">{topics_list_box.row.TOPIC_TYPE}</span>
-          <h2 class="topic-title">
-            <a class="topictitle" href="{topics_list_box.row.U_VIEW_TOPIC}">{topics_list_box.row.TOPIC_TITLE}</a>
-          </h2>
-
-  				<!-- BEGIN switch_description -->
-  				<div class="topic-desc">{topics_list_box.row.topic.switch_description.TOPIC_DESCRIPTION}</div>
-  				<!-- END switch_description -->
-
-  			  <div class="topic-info">
-            {topics_list_box.row.GOTO_PAGE_NEW}
-  				  <span class="topic-author">{topics_list_box.row.L_BY} <strong>{topics_list_box.row.TOPIC_AUTHOR}</strong></span>
-  				  <!-- BEGIN nav_tree -->{topics_list_box.row.TOPIC_NAV_TREE_NEW}<!-- END nav_tree -->
-          </div>
-        </div>
-
-        <div class="forum-stats">
-
-          <div class="posts">
-            <span class="number">{topics_list_box.row.REPLIES}</span><br/>
-            <small>{L_REPLIES}</small>
-          </div>
-
-          <div class="views">
-            <span class="number">{topics_list_box.row.VIEWS}</span><br/>
-            <small>{L_VIEWS}</small>
-          </div>
-
-        </div>
-
-        <div class="forum-lastpost">
-          <!-- BEGIN avatar -->
-          <span class="lastpost-avatar">{topics_list_box.row.topic.avatar.LAST_POST_AVATAR}</span>
-          <div style="float:left;">
-          <!-- END avatar -->
-  				  <span>{topics_list_box.row.LAST_POST_AUTHOR}&nbsp;
-  			    {topics_list_box.row.LAST_POST_IMG}<br style="clear:left;" />{topics_list_box.row.LAST_POST_TIME}</span>
-          <!-- BEGIN avatar -->
-          </div>
-          <!-- END avatar -->
-
-        </div>
-
-  			<!-- BEGIN multi_selection -->
-  			<input onclick="javascript:check_uncheck_main_{topics_list_box.row.BOX_ID}();" type="checkbox" name="{topics_list_box.FIELDNAME}[]{topics_list_box.row.BOX_ID}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} />
-  			<!-- END multi_selection -->
-
-        <div class="clear"></div>
-      </div>
-    </div>
-<!-- END topic -->
-<!-- BEGIN no_topics -->
-<div class="forum-block">
-  <strong>{topics_list_box.row.L_NO_TOPICS}</strong>
-</div>
-<!-- END no_topics -->
-
-<!-- BEGIN bottom -->
-</div>
-<!-- END bottom -->
-<!-- BEGIN spacer --><br /><!-- END spacer -->
-<!-- END row -->
-<!-- END topics_list_box -->
+  <div class="main-content">
+	<table cellspacing="0" class="table">
+	  <tbody class="statused">
+		<!-- END header_table -->
+		<!-- BEGIN header_row -->
+		<strong>{topics_list_box.row.L_TITLE}</strong>
+		<!-- END header_row -->
+		<!-- BEGIN topic -->
+		<!-- BEGIN table_sticky -->
+	  </tbody>
+	</table>
+  </div>
+  <div class="main-content">
+	<table cellspacing="0" class="table">
+	  <tbody class="statused">
+		<!-- END table_sticky -->
+		<tr>
+		  <td class="tcl tdtopics 
+						  <!-- BEGIN line_sticky --> sticky-separator 
+						  <!-- END line_sticky -->">
+			<span class="status">
+			  <img title="{topics_list_box.row.L_TOPIC_FOLDER_ALT}" src="{topics_list_box.row.TOPIC_FOLDER_IMG}" alt="{topics_list_box.row.L_TOPIC_FOLDER_ALT}" />
+			</span>
+			<!-- BEGIN single_selection -->
+			<input type="radio" name="{topics_list_box.FIELDNAME}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} />&nbsp;
+			<!-- END single_selection --> {topics_list_box.row.ICON}&nbsp; {topics_list_box.row.NEWEST_POST_IMG} {topics_list_box.row.PARTICIPATE_POST_IMG}&nbsp; <span id="typetopic">{topics_list_box.row.TOPIC_TYPE}</span>&nbsp; <h4 class="ipsDataItem_title ipsContained_container" data-topic-id="{topics_list_box.row.U_VIEW_TOPIC}">
+			  <span style="display: none;">
+				<span class="ipsBadge ipsBadge_icon ipsBadge_small ipsBadge_positive" style="background: #e3f3ec;" data-ipstooltip="" _title="Solved">
+				  <i class="fa fa-check" style="color: #2c8c69;line-height: 1.9;"></i>
+				</span>
+			  </span>
+			  <a class="topictitle" href="{topics_list_box.row.U_VIEW_TOPIC}">{topics_list_box.row.TOPIC_TITLE}</a>
+			  </h2>&nbsp; {topics_list_box.row.GOTO_OPEN} {topics_list_box.row.GOTO_PAGE_NEW} {topics_list_box.row.GOTO_CLOSE}&nbsp; <br />
+			  <div class="ipsDataItem_meta ipsType_reset ipsType_light ipsType_blendLinks">
+				<span> By {topics_list_box.row.TOPIC_AUTHOR}</span>
+			  </div>
+			  <!-- BEGIN switch_description -->
+			  <br /> &nbsp;{topics_list_box.row.topic.switch_description.TOPIC_DESCRIPTION}
+			  <!-- END switch_description -->
+		  </td>
+		  <td class="ipsDataItem_stats tc3 
+						  <!-- BEGIN line_sticky --> sticky-separator 
+						  <!-- END line_sticky -->">
+			<span style="display: none;" data-id="hot_topic" class="ipsBadge ipsBadge_orange">Quente</span>
+			<li data-stattype="forums_comments">
+			  <span style="display: none;" data-id="hot_topic" class="ipsBadge ipsBadge_orange">Hot</span>
+			  <span class="ipsDataItem_stats_number">{topics_list_box.row.REPLIES}</span>
+			  <span class="ipsDataItem_stats_type"> replies</span>
+			</li>
+			<li class="ipsType_light" data-stattype="num_views">
+			  <span class="ipsDataItem_stats_number">{topics_list_box.row.VIEWS}</span>
+			  <span class="ipsDataItem_stats_type"> views</span>
+			</li>
+		  <td class="ipsDataItem_lastPoster ipsDataItem_withPhoto ipsType_blendLinks tcr 
+							  <!-- BEGIN line_sticky --> sticky-separator 
+							  <!-- END line_sticky -->">
+			<li>
+			  <!-- BEGIN avatar -->
+			  <a href="#" rel="nofollow" data-ipshover="" data-ipshover-width="370" data-ipshover-target="#" class="ipsUserPhoto ipsUserPhoto_tiny" title="Go to profile"> {topics_list_box.row.topic.avatar.LAST_POST_AVATAR} </a>
+			  <!-- END avatar -->
+			</li>
+			<li> {topics_list_box.row.LAST_POST_AUTHOR} </li>
+			<li class="ipsType_light">
+			  <a href="#" title="Go to last post" class="ipsType_blendLinks">
+				<time datetime="{topics_list_box.row.LAST_POST_TIME}">{topics_list_box.row.LAST_POST_TIME}</time>
+			  </a>
+			</li>
+		  </td>
+		  <!-- BEGIN multi_selection -->
+		  <td>
+			<input onclick="javascript:check_uncheck_main_{topics_list_box.row.BOX_ID}();" type="checkbox" name="{topics_list_box.FIELDNAME}[]{topics_list_box.row.BOX_ID}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} />
+		  </td>
+		  <!-- END multi_selection -->
+		</tr>
+		<!-- END topic -->
+		<!-- BEGIN no_topics -->
+		<tr>
+		  <td class="tcl" colspan="4">
+			<strong>{topics_list_box.row.L_NO_TOPICS}</strong>
+		  </td>
+		</tr>
+		<!-- END no_topics -->
+		<!-- BEGIN bottom -->
+	  </tbody>
+	</table>
+  </div>
+  <!-- END bottom -->
+  <!-- BEGIN spacer -->
+  <br />
+  <!-- END spacer -->
+  <!-- END row -->
+  <!-- END topics_list_box -->
+  <style>
+	.ipsType_pagetitle,
+	.ipsType_subtitle {
+	  color: #323232;
+	  font-family: Helvetica, Arial, sans-serif;
+	  font-size: 26px;
+	  font-style: normal;
+	  font-variant: normal;
+	  font-weight: 300;
+	  line-height: 1.3;
+	}
+  
+	.ipsBadge {
+	  border-radius: 4px 4px 4px 4px;
+	  color: #FFFFFF;
+	  display: inline-block;
+	  font-size: 9px;
+	  font-weight: 700;
+	  height: 15px;
+	  line-height: 15px;
+	  padding: 0 5px;
+	  text-transform: uppercase;
+	  vertical-align: middle;
+	}
+  
+	.ipsBadge_orange {
+	  background: none repeat scroll 0 0 #ED7710;
+	}
+  
+	#typetopic {
+	  display: inline-block;
+	  line-height: 16px;
+	  padding: 0 5px;
+	  font-size: 9px;
+	  font-weight: bold;
+	  background: #5d9829;
+	  text-transform: uppercase;
+	  color: #fff;
+	  -moz-border-radius: 4px;
+	  -webkit-border-radius: 4px;
+	  border-radius: 4px;
+	}
+  
+	.ipsFilterbar li a {
+	  color: #fff;
+	  opacity: 0.5;
+	}
+  
+	.ipsFilterbar li a {
+	  color: #fff !important;
+	  opacity: 0.6;
+	}
+  
+	.ipsList_inline>li {
+	  display: inline-block;
+	  margin: 0 3px;
+	}
+  
+	a[href^="/u"] span[style] strong {
+	  font-weight: 400 !important;
+	}
+  
+	#main-content>div.main.paged>div.ipsButtonBar.ipsPad_half.ipsClearfix.ipsClear>ul.ipsButtonRow.ipsPos_right.ipsClearfix.ipsResponsive_hidePhone>li>a:hover {
+	  background: rgb(var(--theme-pagination_active));
+	  border-color: rgb(var(--theme-pagination_active));
+	  color: #fff !important;
+	  text-shadow: none;
+	}
+  </style>
+  <script type="text/javascript">
+	//
+	< ![CDATA[var replies_value = 9;
+		var target = $('td.tc3'); target.each(function(index) {
+		  var oThis = $(this);
+		  var replies = oThis.children('strong[data-id="replies"]').text();
+		  if (replies > replies_value) {
+			oThis.children('span[data-id="hot_topic"]').show();
+		  }
+		});
+		//]]>
+  </script>
+  <!-- BEGIN switch_user_logged_in -->
+  <script>
+	function extractTopicNumbersResolved() {
+	  var topicLinks = document.querySelectorAll("a.topictitle");
+	  var topicNumbers = [];
+	  for (var i = 0; i < topicLinks.length; i++) {
+		var link = topicLinks[i];
+		var href = link.getAttribute("href");
+		if (href && href.indexOf("/t") !== -1) {
+		  var topicId = href.split("/t")[1];
+		  var topicNumber = topicId.split("-")[0];
+		  topicNumbers.push(topicNumber);
+		}
+	  }
+	  return topicNumbers;
+	}
+  
+	function fetchTopicDataResolvedTopics() {
+	  var topicNumbers = extractTopicNumbersResolved();
+	  var apiUrl = "https://api.punbb-community.com/topics/resolved";
+	  fetch(apiUrl).then(function(response) {
+		return response.json();
+	  }).then(function(data) {
+		data.forEach(function(topic) {
+		  var topicIdNumber = topic.topicID.replace(/^\D+/g, '');
+		  if (topicNumbers.includes(topicIdNumber)) {
+			var h4Element = document.querySelector('h4[data-topic-id*="t' + topicIdNumber + '"]');
+			if (h4Element) {
+			  var spanElement = h4Element.querySelector('span[style="display: none;"]');
+			  if (spanElement) {
+				spanElement.style.removeProperty('display');
+			  }
+			}
+		  }
+		});
+	  }).catch(function(error) {
+		console.error("Ocorreu um erro na solicitação Fetch:", error);
+	  });
+	}
+	fetchTopicDataResolvedTopics();
+  </script>
+  <!-- END switch_user_logged_in -->

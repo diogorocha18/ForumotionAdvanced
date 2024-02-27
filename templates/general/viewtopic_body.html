@@ -1,412 +1,701 @@
 <script type="text/javascript">
-//<![CDATA[
-var multiquote_img_off = '{JS_MULTIQUOTE_IMG_OFF}', multiquote_img_on = '{JS_MULTIQUOTE_IMG_ON}', _atr = '{JS_DIR}addthis/', _ati = '{PATH_IMG_FA}addthis/'{ADDTHIS_LANG}, addthis_localize = { share_caption: "{L_SHARE_CAPTION}", email: "{L_EMAIL}", email_caption: "{L_EMAIL_CAPTION}", favorites: "{L_SHARE_BOOKMARKS}", print: "{L_PRINT}", more: "{L_MORE}" };
-
-
-$(function(){
-
-    if(typeof(_atc) == "undefined") {
-        _atc = {  };
-    }
-
-});
-
-var hiddenMsgLabel = { visible:'{JS_HIDE_HIDDEN_MESSAGE}', hidden:'{JS_SHOW_HIDDEN_MESSAGE}' };
-showHiddenMessage = function(id)
-{
-    try
-    {
-        var regId = parseInt(id, 10);
-        if( isNaN(regId) ) { regId = 0; }
-
-        if( regId > 0)
-        {
-            $('.post--' + id).toggle(0, function()
-			{
-				if( $(this).is(":visible") )
-				{
-					$('#hidden-title--' + id).html(hiddenMsgLabel.visible);
-				}
-				else
-				{
-					$('#hidden-title--' + id).html(hiddenMsgLabel.hidden);
-				}
-			});
-        }
-    }
-    catch(e) { }
-
-	return false;
-};
-
-//]]>
+    //
+    <
+    ![CDATA[var multiquote_img_off = '{JS_MULTIQUOTE_IMG_OFF}', multiquote_img_on = '{JS_MULTIQUOTE_IMG_ON}', _atr = '{JS_DIR}addthis/', _ati = '{PATH_IMG_FA}addthis/' {
+                ADDTHIS_LANG
+            }, addthis_localize = {
+                share_caption: "{L_SHARE_CAPTION}",
+                email: "{L_EMAIL}",
+                email_caption: "{L_EMAIL_CAPTION}",
+                favorites: "{L_SHARE_BOOKMARKS}",
+                print: "{L_PRINT}",
+                more: "{L_MORE}"
+            }; $(function() {
+                _atc.cwait = 0;
+                $('.addthis_button').mouseup(function() {
+                    if ($('#at15s').css('display') == 'block') {
+                        addthis_close();
+                        addthis_close();
+                    }
+                });
+            });
+            //]]>
 </script>
-
-<h1 class="page-title">
-	<a href="{TOPIC_URL}">{TOPIC_TITLE}</a>
-</h1>
-
-<div class="topic-actions">
-	<div class="buttons">
-
-		<!-- BEGIN switch_user_authpost -->
-		<a href="{U_POST_NEW_TOPIC}" rel="nofollow"><img src="{POST_IMG}" class="{POST_IMG_CLASS}" alt="{L_POST_NEW_TOPIC}" /></a>&nbsp;&nbsp;&nbsp;
-		<!-- END switch_user_authpost -->
-
-		<!-- BEGIN switch_user_authreply -->
-		<a href="{U_POST_REPLY_TOPIC}"><img src="{REPLY_IMG}" class="i_reply" alt="{L_POST_REPLY_TOPIC}" /></a>
-		<!-- END switch_user_authreply -->
-	</div>
-
-	<div class="breadcrumbs">
-		<p itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-            <a class="nav" href="{U_INDEX}" itemprop="url"><span itemprop="title">{L_INDEX}</span></a>
-            <!--{NAV_SEP}<a class="nav" href="{U_ALBUM}" itemprop="url"><span itemprop="title">{L_ALBUM}</span></a>-->
-            {NAV_CAT_DESC}
+<!-- BEGIN switch_user_logged_in -->
+<div id="pun-visit" class="clearfix">
+    <ul>
+        <!-- BEGIN switch_plus_menu -->
+        <li>
+            <script type="text/javascript">
+                //
+                <
+                ![CDATA[var url_favourite = '{switch_user_logged_in.U_FAVOURITE_JS_PLUS_MENU}';
+                        var url_newposts = '{U_NEWPOSTS_JS_PLUS_MENU}';
+                        var url_egosearch = '{U_EGOSEARCH_JS_PLUS_MENU}';
+                        var url_unanswered = '{U_UNANSWERED_JS_PLUS_MENU}';
+                        var url_watchsearch = '{U_WATCHSEARCH_JS_PLUS_MENU}'; insert_plus_menu_new('f{FORUM_ID}&t={TOPIC_ID}', '{JS_SESSION_ID}', {
+                            JS_AUTH_FAVOURITES
+                        });
+                        //]]>
+            </script>
+        </li>
+        <!-- END switch_plus_menu -->
+        <li>
+            <a class="addthis_button" href="https://www.addthis.com/bookmark.php?v=250&pub=forumotion">{L_SHARE}</a>
+        </li>
+        <li>
+            <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+        </li>
+        <li>
+            <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+        </li>
+        <!-- BEGIN watchtopic -->
+        <li>{S_WATCH_TOPIC}</li>
+        <!-- END watchtopic -->
+    </ul>
+    <p>{LOGGED_AS}. {LAST_VISIT_DATE}</p>
+</div>
+<!-- END switch_user_logged_in -->
+<div class="pun-crumbs noprint">
+    <p class="crumbs">
+        <a href="{U_INDEX}">{L_INDEX}</a>{NAV_CAT_DESC} » <strong>
+            <a href="{TOPIC_URL}">{TOPIC_TITLE}</a>
+        </strong>
+    </p>
+</div>
+<div class="ipsPageHeader ipsResponsive_pull ipsBox ipsPadding sm:ipsPadding:half ipsMargin_bottom">
+    <div class="ipsFlex ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:4">
+        <div class="ipsFlex-flex:11">
+            <h1 class="ipsType_pageTitle ipsContained_container">
+                <span class="ipsType_break ipsContained" data-controller="core.front.core.moderation">
+                    <span data-role="editableTitle" title="(Click and hold to edit title)">{TOPIC_TITLE}</span>
+                </span>
+            </h1>
+            <ul class="ipsTags ipsList_inline " data-controller="core.front.core.tagEditor" data-tageditid="764722233"></ul>
+        </div>
+        <div class="ipsFlex-flex:00 ipsType_light">
+            <div class="ipsClearfix ipsRating  ipsRating_veryLarge">
+                <div class="rating">
+                    <span class="star" data-rating="1">&#9733;</span>
+                    <span class="star" data-rating="2">&#9733;</span>
+                    <span class="star" data-rating="3">&#9733;</span>
+                    <span class="star" data-rating="4">&#9733;</span>
+                    <span class="star" data-rating="5">&#9733;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="ipsHr">
+    <div class="ipsPageHeader__meta ipsFlex ipsFlex-jc:between ipsFlex-ai:center ipsFlex-fw:wrap ipsGap:3">
+        <div class="ipsFlex-flex:11">
+            <div class="ipsPhotoPanel ipsPhotoPanel_mini ipsPhotoPanel_notPhone ipsClearfix">
+                <a class="teste2 ipsUserPhoto ipsUserPhoto_mini" class="ipsUserPhoto ipsUserPhoto_mini" href="#">
+                    <img class="teste" alt="" src="https://2img.net/u/2617/31/90/74/avatars/1-40.png" />
+                </a>
+                <div>
+                    <p class="ipsType_reset ipsType_blendLinks">
+                        <span class="ipsType_normal">
+                            <strong>By <span itemprop="creator"></span>
+                            </strong>
+                            <br>
+                            <span class="ipsType_light">
+                                <span itemprop="data_post"></span> in {NAV_CAT_DESC} </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ipsFlex-flex:01 ipsResponsive_hidePhone">
+            <div class="ipsShareLinks"> {POSTERS_LIST} </div>
+        </div>
+    </div>
+</div>
+<div class="ipsClearfix">
+    <ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsSpacer_both ">
+        <li class="ipsResponsive_hidePhone">
+            <!-- BEGIN switch_user_authreply -->
+            <a class="ipsButton ipsButton_link ipsButton_medium ipsButton_fullWidth" href="{U_POST_REPLY_TOPIC}">
+                <img src="{REPLY_IMG}" class="i_reply" alt="{L_POST_REPLY_TOPIC}" />
+            </a>
+            <!-- END switch_user_authreply -->
+        </li>
+    </ul>
+</div>
+<div class="main paged" style="display:none; margin: -1em 0;">
+    <div class="paged-head clearfix">
+        <!-- BEGIN topicpagination -->
+        <p class="paging">{PAGINATION}</p>
+        <!-- END topicpagination -->
+    </div> {POLL_DISPLAY} <div class="main-content topic" style="padding: 5px;">
+        <!-- BEGIN postrow -->
+        <!-- BEGIN hidden -->
+        <p class="p-hidden">{postrow.hidden.MESSAGE}</p>
+        <!-- END hidden -->
+        <!-- BEGIN displayed -->
+        <div class="post post--{postrow.displayed.U_POST_ID}" {postrow.displayed.THANK_BGCOLOR} style="{postrow.displayed.DISPLAYABLE_STATE}">
+            <a name="{postrow.displayed.U_POST_ID}"></a>
+            <div class="postmain">
+                <div style="display:none" id="p{postrow.displayed.U_POST_ID}" class="posthead" {postrow.displayed.THANK_BGCOLOR}>
+                    <h2>
+                        <strong>{postrow.displayed.COUNT_POSTS}</strong> {postrow.displayed.ICON} <a href="{postrow.displayed.POST_URL}">{postrow.displayed.POST_SUBJECT}</a> {postrow.displayed.POST_DATE_NEW}
+                    </h2>
+                </div>
+                <div class="postbody">
+                    <div class="user">
+                        <div class="user-ident">
+                            <div class="user-basic-info">
+                                <h3 class="ipsType_sectionHead cAuthorPane_author ipsType_blendLinks ipsType_break" style="line-height: 20px;">
+                                    <strong>
+                                        <div class="post_online">{postrow.displayed.ONLINE_IMG}</div>
+                                        <span itemprop="creator name" class="author vcard">
+                                            <span hovercard-ref="member" hovercard-id="35095" class="fraseurl fn name  ___hover___member _hoversetup" title="" id="anonymous_element_2">
+                                                <span class="frase_d" itemprop="name">{postrow.displayed.POSTER_NAME}</span>
+                                            </span>
+                                        </span>
+                                    </strong>
+                                </h3>
+                                <div id="title-member"></div>
+                                <div class="user"></div> {postrow.displayed.POSTER_AVATAR} <br /> {postrow.displayed.POSTER_RANK_NEW}{postrow.displayed.RANK_IMAGE}
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <!-- BEGIN profile_field --> {postrow.displayed.profile_field.LABEL}{postrow.displayed.profile_field.CONTENT}{postrow.displayed.profile_field.SEPARATOR}
+                            <!-- END profile_field --> {postrow.displayed.POSTER_RPG}
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <div class="post_date">
+                            <div class="ipsComment_meta ipsType_light ipsFlex ipsFlex-ai:center ipsFlex-jc:between ipsFlex-fd:row-reverse">
+                                <div class="ipsType_light ipsType_reset ipsType_blendLinks ipsComment_toolWrap">
+                                    <div class="ipsResponsive_hidePhone ipsComment_badges">
+                                        <ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1" style="display:none;">
+                                            <li>
+                                                <strong class="ipsBadge ipsBadge_large ipsComment_authorBadge">Author</strong>
+                                            </li>
+                                        </ul>
+                                        <ul class="ipsList_reset ipsFlex ipsFlex-jc:end ipsFlex-fw:wrap ipsGap:2 ipsGap_row:1" style="display:none;">
+                                            <li>
+                                                <strong class="ipsBadge ipsBadge_large ipsBadge_positive ipsBadge_reverse" style="color: #FFF!important;">
+                                                    <i class="fa fa-check"></i> Solution </strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="ipsList_reset ipsComment_tools">
+                                        <li>
+                                            <a href="#elControls_2_menu" class="ipsComment_ellipsis" id="elControls_2" title="More options..." data-ipsmenu="" data-ipsmenu-appendto="#comment-2_wrap">
+                                                <i class="fa fa-ellipsis-h"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span class="ipsCustomInput">
+                                                <input type="checkbox" name="multimod[2]" value="1" data-role="moderation" data-actions="split merge hide delete" data-state="unhidden">
+                                                <span></span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ipsType_reset ipsResponsive_hidePhone">
+                                    <a href="{postrow.displayed.POST_URL}" rel="nofollow" class="ipsType_blendLinks">Posted {postrow.displayed.POST_DATE_NEW} </a> · {postrow.displayed.IP_IMG} <i class="fa fa-angle-down"></i>
+                                    </a>&nbsp;&nbsp; <span class="ipsResponsive_hidePost"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post_date" style="display:none;">
+                            <p class="posted_info desc lighter ipsType_small">Posted <abbr class="published" itemprop="commentTime" title="{postrow.displayed.POST_DATE_NEW}">
+                                    <span class="data-post">{postrow.displayed.POST_DATE_NEW}</span>
+                                    <span class="post_id right ipsType_small desc blend_links">
+                                        <a itemprop="replyToUrl" data-entry-pid="424042" href="{postrow.displayed.POST_URL}" rel="bookmark" title="{postrow.displayed.POST_SUBJECT}: post #{postrow.displayed.COUNT_POSTS}"> #{postrow.displayed.COUNT_POSTS} <img src="https://i.servimg.com/u/f78/17/31/71/58/icon_s10.png" class="small" title="{postrow.displayed.POST_SUBJECT}: post #{postrow.displayed.COUNT_POSTS}" />
+                                        </a>
+                                    </span>
+                                </abbr>
+                            </p>
+                        </div>
+                        <div class="entry-content">
+                            <!-- BEGIN switch_vote_active -->
+                            <div class="vote gensmall">
+                                <!-- BEGIN switch_vote -->
+                                <div class="vote-button">
+                                    <a href="{postrow.displayed.switch_vote_active.switch_vote.U_VOTE_PLUS}">+</a>
+                                </div>
+                                <!-- END switch_vote -->
+                                <!-- BEGIN switch_bar -->
+                                <div class="vote-bar" title="{postrow.displayed.switch_vote_active.L_VOTE_TITLE}">
+                                    <!-- BEGIN switch_vote_plus -->
+                                    <div class="vote-bar-plus" style="height:{postrow.displayed.switch_vote_active.switch_bar.switch_vote_plus.HEIGHT_PLUS}px;"></div>
+                                    <!-- END switch_vote_plus -->
+                                    <!-- BEGIN switch_vote_minus -->
+                                    <div class="vote-bar-minus" style="height:{postrow.displayed.switch_vote_active.switch_bar.switch_vote_minus.HEIGHT_MINUS}px;"></div>
+                                    <!-- END switch_vote_minus -->
+                                </div>
+                                <!-- END switch_bar -->
+                                <!-- BEGIN switch_no_bar -->
+                                <div title="{postrow.displayed.switch_vote_active.L_VOTE_TITLE}" class="vote-no-bar"> ----</div>
+                                <!-- END switch_no_bar -->
+                                <!-- BEGIN switch_vote -->
+                                <div class="vote-button">
+                                    <a href="{postrow.displayed.switch_vote_active.switch_vote.U_VOTE_MINUS}">-</a>
+                                </div>
+                                <!-- END switch_vote -->
+                            </div>
+                            <!-- END switch_vote_active -->
+                            <div class="content">
+                                <div>{postrow.displayed.MESSAGE}</div>
+                                <!-- BEGIN switch_attachments -->
+                                <dl class="attachbox">
+                                    <dt>{postrow.displayed.switch_attachments.L_ATTACHMENTS}</dt>
+                                    <dd>
+                                        <!-- BEGIN switch_post_attachments -->
+                                        <dl class="file">
+                                            <dt>
+                                                <img src="{postrow.displayed.switch_attachments.switch_post_attachments.U_IMG}" />
+                                                <!-- BEGIN switch_dl_att -->
+                                                <a class="postlink" href="{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.U_ATTACHMENT}">{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT}</a> {postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT_DEL}
+                                                <!-- END switch_dl_att -->
+                                                <!-- BEGIN switch_no_dl_att --> {postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT} {postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT_DEL}
+                                                <!-- END switch_no_dl_att -->
+                                            </dt>
+                                            <!-- BEGIN switch_no_comment -->
+                                            <dd>
+                                                <em>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_comment.ATTACHMENT_COMMENT}</em>
+                                            </dd>
+                                            <!-- END switch_no_comment -->
+                                            <!-- BEGIN switch_no_dl_att -->
+                                            <dd>
+                                                <em>
+                                                    <strong>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.TEXT_NO_DL}</strong>
+                                                </em>
+                                            </dd>
+                                            <!-- END switch_no_dl_att -->
+                                            <dd>({postrow.displayed.switch_attachments.switch_post_attachments.FILE_SIZE}) {postrow.displayed.switch_attachments.switch_post_attachments.NB_DL} </dd>
+                                        </dl>
+                                        <!-- END switch_post_attachments -->
+                                    </dd>
+                                </dl>
+                                <!-- END switch_attachments -->
+                                <div class="clear"></div>
+                            </div>
+                            <p> {postrow.displayed.EDITED_MESSAGE} </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- BEGIN switch_signature -->
+                <div class="sig-content"> {postrow.displayed.SIGNATURE_NEW} </div>
+                <!-- END switch_signature -->
+                <div class="postfoot">
+                    <!--All rights reserved to the PunBB Community -->
+                    <div class="like_system" data-post-id="{postrow.displayed.U_POST_ID}"></div>
+                    <div class="post-options profile_{postrow.displayed.PROFILE_POSITION}" style="border-top: 1px solid rgba( var(--theme-text_color), 0.1 );"> {postrow.displayed.REPORT_IMG} {postrow.displayed.EDIT_IMG} <a>
+                            <span class="post-btn2" data-post-id="{postrow.displayed.U_POST_ID}" class="post-btn2">Hide</span>
+                        </a> {postrow.displayed.DELETE_IMG} {postrow.displayed.MULTIQUOTE_IMG} {postrow.displayed.QUOTE_IMG}
+                        <!--{ postrow.displayed.THANK_IMG } -->
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN first_post_br -->
+    </div>
+    <hr id="first-post-br" />
+    <div class="main-content topic">
+        <!-- END first_post_br -->
+        <!-- END displayed -->
+        <!-- BEGIN hidden -->
+        <p class="p-hidden">{postrow.hidden.MESSAGE}</p>
+        <!-- END hidden -->
+        <!-- END postrow -->
+    </div>
+    <div class="main-foot clearfix">
+        <p class="options">
+            <input type="hidden" name="t" value="{TOPIC_ID}" />
+            <!-- <input type="hidden" name="sid" value="{S_SID}" /> -->
+            <input type="hidden" name="{SECURE_ID_NAME}" value="{SECURE_ID_VALUE}" />
+            <!-- BEGIN viewtopic_bottom --> {S_TOPIC_ADMIN}
+            <!-- END viewtopic_bottom -->
         </p>
-	</div>
-
-	<p class="right">
-        <!-- BEGIN switch_twitter_btn -->
-        <span>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="{TWITTER}">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </span>
-        <!-- END switch_twitter_btn -->
-		<!-- BEGIN switch_fb_likebtn -->
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/{LANGUAGE}/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		<span class="fb-like" data-href="{FORUM_URL}{TOPIC_URL}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></span>
-		<!-- END switch_fb_likebtn -->
-	</p>
-
-	<div class="pagination">
-		{PAGE_NUMBER}
-		&nbsp;&bull;&nbsp;
-		<a class="addthis_button" href="#">{L_SHARE}</a>
-		<!-- BEGIN switch_plus_menu -->
-		&nbsp;&bull;&nbsp;
-		<script type="text/javascript">//<![CDATA[
-			var url_favourite = '{U_FAVOURITE_JS_PLUS_MENU}';
-			var url_newposts = '{U_NEWPOSTS_JS_PLUS_MENU}';
-			var url_egosearch = '{U_EGOSEARCH_JS_PLUS_MENU}';
-			var url_unanswered = '{U_UNANSWERED_JS_PLUS_MENU}';
-			var url_watchsearch = '{U_WATCHSEARCH_JS_PLUS_MENU}';
-			var url_tellfriend = '{U_TELLFRIEND_JS_PLUS_MENU}';
-			insert_plus_menu_new('f{FORUM_ID}&amp;t={TOPIC_ID}','{JS_SESSION_ID}', {JS_AUTH_FAVOURITES});
-		//]]>
-		</script>
-		<!-- END switch_plus_menu -->
-	</div>
-	<div class="clear"></div>
-</div>
-
-<!-- BEGIN topicpagination -->
-<p class="pagination">{PAGINATION}</p>
-<!-- END topicpagination -->
-<p class="left-box"><a href="{U_VIEW_OLDER_TOPIC}">{L_VIEW_PREVIOUS_TOPIC}</a>&nbsp;<a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC}</a>&nbsp;<a href="#bottom">{L_GOTO_DOWN}</a></p>
-<div class="clear"></div>
-{POLL_DISPLAY}
-
-<!-- BEGIN postrow -->
-	<!-- BEGIN hidden -->
-		<div class="content-block post {postrow.hidden.ROW_COUNT}">
-			<div class="post-inner">
-				<p style="text-align:center">{postrow.hidden.MESSAGE}</p>
-				<div class="clear"></div>
-			</div>
-		</div>
-	<!-- END hidden -->
-	<!-- BEGIN displayed -->
-		<div id="p{postrow.displayed.U_POST_ID}" class="content-block post {postrow.displayed.ROW_COUNT}{postrow.displayed.ONLINE_IMG_NEW} post--{postrow.displayed.U_POST_ID}"{postrow.displayed.THANK_BGCOLOR} style="{postrow.displayed.DISPLAYABLE_STATE}">
-      <div style="position: relative; top: -30px; width: 1px;" id="{postrow.displayed.U_POST_ID}"></div>
-
-      <div class="title">
-        <h2 class="topic-title">{postrow.displayed.ICON} <a href="{postrow.displayed.POST_URL}">{postrow.displayed.POST_SUBJECT}</a></h2>
-        <a class="post-number" href="{postrow.displayed.POST_URL}">#{postrow.displayed.U_POST_ID}</a>
-        <div class="clear"></div>
-      </div>
-    <div class="post-inner">
-			<div class="postprofile" id="profile{postrow.displayed.U_POST_ID}">
-				<dl>
-					<dt>
-						<div class="user-avatar">{postrow.displayed.POSTER_AVATAR}</div>
-						<strong class="username">{postrow.displayed.POSTER_NAME}</strong>
-            <div class="rank-title">{postrow.displayed.POSTER_RANK_NEW}{postrow.displayed.RANK_IMAGE}</div>
-					</dt>
-
-					<dd class="field-info">
-						<!-- BEGIN profile_field -->
-						<span class="profile-field">{postrow.displayed.profile_field.LABEL} <span class="value">{postrow.displayed.profile_field.CONTENT}</span>{postrow.displayed.profile_field.SEPARATOR}</span>
-						<!-- END profile_field -->
-						{postrow.displayed.POSTER_RPG}
-					</dd>
-
-					<dd class="contact-info">
-						{postrow.displayed.PROFILE_IMG} {postrow.displayed.PM_IMG} {postrow.displayed.EMAIL_IMG}<!-- BEGIN contact_field --> {postrow.displayed.contact_field.CONTENT}<!-- END contact_field -->
-					</dd>
-				</dl>
-			</div>
-
-			<div class="postbody">
-        <p class="author"><img src="{postrow.displayed.MINI_POST_IMG}" alt="{postrow.displayed.L_MINI_POST_ALT}" title="{postrow.displayed.L_MINI_POST_ALT}" />{postrow.displayed.POSTER_NAME} {postrow.displayed.POST_DATE_NEW}</p>
-
-				<ul class="profile-icons">
-				<!-- BEGIN switch_vote_active -->
-				<li class="vote gensmall">
-					<!-- BEGIN switch_vote -->
-					<a class="fa vote-button-plus" href="{postrow.displayed.switch_vote_active.switch_vote.U_VOTE_PLUS}"></a>
-					<!-- END switch_vote -->
-
-					<!-- BEGIN switch_bar -->
-					<span class="vote-bar" title="{postrow.displayed.switch_vote_active.L_VOTE_TITLE}">
-						<!-- BEGIN switch_vote_plus -->
-						<span class="vote-bar-plus" style="width:{postrow.displayed.switch_vote_active.switch_bar.switch_vote_plus.HEIGHT_PLUS}px;"></span>
-						<!-- END switch_vote_plus -->
-
-						<!-- BEGIN switch_vote_minus -->
-						<span class="vote-bar-minus" style="width:{postrow.displayed.switch_vote_active.switch_bar.switch_vote_minus.HEIGHT_MINUS}px;"></span>
-						<!-- END switch_vote_minus -->
-					</span>
-					<!-- END switch_bar -->
-
-					<!-- BEGIN switch_no_bar -->
-					<span title="{postrow.displayed.switch_vote_active.L_VOTE_TITLE}" class="vote-no-bar"></span>
-					<!-- END switch_no_bar -->
-
-					<!-- BEGIN switch_vote -->
-					<a class="fa vote-button-minus" href="{postrow.displayed.switch_vote_active.switch_vote.U_VOTE_MINUS}"></a>
-					<!-- END switch_vote -->
-				</li>
-				<!-- END switch_vote_active -->
-					<li>{postrow.displayed.THANK_IMG}</li>
-					<li>{postrow.displayed.MULTIQUOTE_IMG}</li>
-					<li>{postrow.displayed.QUOTE_IMG}</li>
-					<li>{postrow.displayed.EDIT_IMG}</li>
-					<li>{postrow.displayed.DELETE_IMG}</li>
-					<li>{postrow.displayed.IP_IMG}</li>
-					<li>{postrow.displayed.REPORT_IMG_NEW}</li>
-				</ul>
-
-				<div class="content">
-					<div>{postrow.displayed.MESSAGE}</div>
-						<!-- BEGIN switch_attachments -->
-						<dl class="attachbox">
-							<dt>{postrow.displayed.switch_attachments.L_ATTACHMENTS}</dt>
-							<dd class="attachments">
-								<!-- BEGIN switch_post_attachments -->
-								<dl class="file clearfix">
-									<dt>
-										<img src="{postrow.displayed.switch_attachments.switch_post_attachments.U_IMG}" alt=""/>
-									</dt>
-									<dd>
-										<!-- BEGIN switch_dl_att -->
-										<span><a class="postlink" href="{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.U_ATTACHMENT}">{postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT}</a> {postrow.displayed.switch_attachments.switch_post_attachments.switch_dl_att.ATTACHMENT_DEL}</span>
-										<!-- END switch_dl_att -->
-
-										<!-- BEGIN switch_no_dl_att -->
-										<span>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT} {postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.ATTACHMENT_DEL}</span>
-										<!-- END switch_no_dl_att -->
-
-										<!-- BEGIN switch_no_comment -->
-										<span>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_comment.ATTACHMENT_COMMENT}</span>
-										<!-- END switch_no_comment -->
-
-										<!-- BEGIN switch_no_dl_att -->
-										<span><strong>{postrow.displayed.switch_attachments.switch_post_attachments.switch_no_dl_att.TEXT_NO_DL}</strong></span>
-										<!-- END switch_no_dl_att -->
-
-										<span>({postrow.displayed.switch_attachments.switch_post_attachments.FILE_SIZE}) {postrow.displayed.switch_attachments.switch_post_attachments.NB_DL}</span>
-									</dd>
-								</dl>
-								<!-- END switch_post_attachments -->
-							</dd>
-						</dl>
-						<!-- END switch_attachments -->
-				</div>
-				{postrow.displayed.EDITED_MESSAGE}
-				<!-- BEGIN switch_signature -->
-				<div class="signature_div" id="sig{postrow.displayed.U_POST_ID}">{postrow.displayed.SIGNATURE_NEW}</div>
-				<!-- END switch_signature -->
-			</div>
-
-			<div class="clear"></div>
-      
-			<!-- BEGIN switch_likes_active -->
-			<div class="fa_like_div">
-				<!-- BEGIN switch_like_list -->
-				{postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
-				<!-- END switch_like_list -->
-				<!-- BEGIN switch_dislike_list -->
-				{postrow.displayed.switch_likes_active.switch_dislike_list.D_DISLIKE_LIST}
-				<!-- END switch_dislike_list -->
-				<button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"  data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}" data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}">
-					<svg width="13px" height="13px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 1344q0-26-19-45t-45-19q-27 0-45.5 19t-18.5 45q0 27 18.5 45.5t45.5 18.5q26 0 45-18.5t19-45.5zm160-512v640q0 26-19 45t-45 19h-288q-26 0-45-19t-19-45v-640q0-26 19-45t45-19h288q26 0 45 19t19 45zm1184 0q0 86-55 149 15 44 15 76 3 76-43 137 17 56 0 117-15 57-54 94 9 112-49 181-64 76-197 78h-129q-66 0-144-15.5t-121.5-29-120.5-39.5q-123-43-158-44-26-1-45-19.5t-19-44.5v-641q0-25 18-43.5t43-20.5q24-2 76-59t101-121q68-87 101-120 18-18 31-48t17.5-48.5 13.5-60.5q7-39 12.5-61t19.5-52 34-50q19-19 45-19 46 0 82.5 10.5t60 26 40 40.5 24 45 12 50 5 45 .5 39q0 38-9.5 76t-19 60-27.5 56q-3 6-10 18t-11 22-8 24h277q78 0 135 57t57 135z" fill="#666"/></svg>
-					<span>{postrow.displayed.switch_likes_active.L_LIKE}</span>{postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
-				</button>
-				<!-- BEGIN switch_dislike_button -->
-				<button class="rep-button {postrow.displayed.switch_likes_active.switch_dislike_button.C_VOTE_DISLIKE}" data-href="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_DISLIKE}" data-href-rm="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_RM_LIKE}">
-					<svg width="13px" height="13px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M320 576q0 26-19 45t-45 19q-27 0-45.5-19t-18.5-45q0-27 18.5-45.5t45.5-18.5q26 0 45 18.5t19 45.5zm160 512v-640q0-26-19-45t-45-19h-288q-26 0-45 19t-19 45v640q0 26 19 45t45 19h288q26 0 45-19t19-45zm1129-149q55 61 55 149-1 78-57.5 135t-134.5 57h-277q4 14 8 24t11 22 10 18q18 37 27 57t19 58.5 10 76.5q0 24-.5 39t-5 45-12 50-24 45-40 40.5-60 26-82.5 10.5q-26 0-45-19-20-20-34-50t-19.5-52-12.5-61q-9-42-13.5-60.5t-17.5-48.5-31-48q-33-33-101-120-49-64-101-121t-76-59q-25-2-43-20.5t-18-43.5v-641q0-26 19-44.5t45-19.5q35-1 158-44 77-26 120.5-39.5t121.5-29 144-15.5h129q133 2 197 78 58 69 49 181 39 37 54 94 17 61 0 117 46 61 43 137 0 32-15 76z" fill="#666"/></svg>
-					<span>{postrow.displayed.switch_likes_active.switch_dislike_button.L_DISLIKE}</span>{postrow.displayed.switch_likes_active.switch_dislike_button.COUNT_VOTE_DISLIKE}
-				</button>
-				<!-- END switch_dislike_button -->
-			</div>
-			<!-- END switch_likes_active -->
     </div>
-		</div>
-		<!-- BEGIN first_post_br -->
-		<hr id="first-post-br" />
-		<!-- END first_post_br -->
-	<!-- END displayed -->
-<!-- END postrow -->
-
-<a name="bottomtitle"></a>
-
-<!-- BEGIN topicpagination -->
-<p class="pagination">{PAGINATION}</p>
-<!-- END topicpagination -->
-
-<p class="left-box"><a href="{U_VIEW_OLDER_TOPIC}">{L_VIEW_PREVIOUS_TOPIC}</a>&nbsp;<a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC}</a>&nbsp;<a href="#top">{L_BACK_TO_TOP}</a></p>
-
-<div class="clear"></div>
-
-<div class="noprint">
+    <a name="bottomtitle"></a>
+    <br />
+    <!-- BEGIN promot_trafic -->
+    <div class="main" id="ptrafic_close" style="display:none">
+        <div class="main-head clearfix">
+            <p class="h2">{PROMOT_TRAFIC_TITLE}</p>
+            <p class="options">
+                <a href="javascript:ShowHideLayer('ptrafic_open','ptrafic_close');">
+                    <img src="{TABS_MORE_IMG}" alt="+" align="" border="0" />
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="main" id="ptrafic_open" style="display:''">
+        <div class="main-head clearfix">
+            <p class="h2">{PROMOT_TRAFIC_TITLE}</p>
+            <p class="options">
+                <a href="javascript:ShowHideLayer('ptrafic_open','ptrafic_close');">
+                    <img src="{TABS_LESS_IMG}" alt="-" align="" border="0" />
+                </a>
+            </p>
+        </div>
+        <div class="main-content clearfix">
+            <!-- BEGIN link --> » <a href="{promot_trafic.link.U_HREF}" title="{promot_trafic.link.TITLE}">{promot_trafic.link.TITLE}</a>
+            <br />
+            <!-- END link -->
+        </div>
+    </div>
+    <!-- END promot_trafic -->
+    <!-- BEGIN switch_forum_rules -->
+    <div class="main" id="forum_rules">
+        <div class="main-head clearfix">
+            <p class="h2">{L_FORUM_RULES}</p>
+        </div>
+        <table class="main-content frm">
+            <tr>
+                <!-- BEGIN switch_forum_rule_image -->
+                <td class="logo">
+                    <img src="{RULE_IMG_URL}" />
+                </td>
+                <!-- END switch_forum_rule_image -->
+                <td class="rules entry-content"> {RULE_MSG} </td>
+            </tr>
+        </table>
+    </div>
+    <!-- END switch_forum_rules -->
+</div>
 <!-- BEGIN switch_user_logged_in -->
-<!-- BEGIN watchtopic -->
-<p class="right">{S_WATCH_TOPIC}</p>
-<!-- END watchtopic -->
-<div class="clear"></div>
+<a name="quickreply"></a> {QUICK_REPLY_FORM}
 <!-- END switch_user_logged_in -->
-</div>
-
-<!-- BEGIN promot_trafic -->
-<div class="content-block traffic-exchange" id="ptrafic_close" style="display:none;">
-  <div class="title c_show" onclick="ShowHideLayer('ptrafic_open','ptrafic_close');">{PROMOT_TRAFIC_TITLE}</div>
-	<div class="txt-content"></div>
-</div>
-<div class="content-block traffic-exchange" id="ptrafic_open" style="display:block;">
-  <div class="title c_hide" onclick="ShowHideLayer('ptrafic_open','ptrafic_close');">{PROMOT_TRAFIC_TITLE}</div>
-	<div class="txt-content">
-		<!-- BEGIN link -->
-		&raquo;&nbsp;<a href="{promot_trafic.link.U_HREF}" target="_blank" title="{promot_trafic.link.TITLE}" rel="nofollow">{promot_trafic.link.TITLE}</a><br />
-		<!-- END link -->
-  </div>
-</div>
-<!-- END promot_trafic -->
-
-<!-- BEGIN switch_forum_rules -->
-<div class="content-block" id="forum_rules">
-  <div class="title">{L_FORUM_RULES}</div>
-	<div class="txt-content">
-	<div class="clear"></div>
-	<table class="postbody">
-		<tr>
-			<!-- BEGIN switch_forum_rule_image -->
-			<td class="logo">
-				<img src="{RULE_IMG_URL}" alt="" />
-			</td>
-			<!-- END switch_forum_rule_image -->
-			<td class="rules content">
-				{RULE_MSG}
-			</td>
-		</tr>
-	</table>
-  </div>
-</div>
-<!-- END switch_forum_rules -->
-
-<!-- BEGIN switch_user_logged_in -->
-<a name="quickreply"></a>
-{QUICK_REPLY_FORM}
-<!-- END switch_user_logged_in -->
-
-<!-- BEGIN switch_user_logged_out -->
-<div id="logged_out_reply" class="content-block">
-  <h2 class="lor_maintitle">Create an account or log in to leave a reply</h2>
-  <p class="lor_maindesc">You need to be a member in order to leave a reply.</p>
-
-  <div class="lor_row">
-    <div class="lor_panel">
-      <h3 class="lor_subtitle">Create an account</h3>
-      <p class="lor_subdesc">Join our community by creating a new account. It's easy!</p>
-      <br/>
-      <a href="/register" class="button1">Create a new account</a>
+<div class="main" id="active_users">
+    <div class="main-content">
+        <div id="user-stats" style="padding: 0.6em 1em">Loading..</div>
     </div>
-
-    <div class="lor_panel">
-      <h3 class="lor_subtitle">Log in</h3>
-      <p class="lor_subdesc">Already have an account? No problem, log in here.</p>
-      <br/>
-      <a href="/login" class="button1">Log in</a>
+</div>
+<div id="pun-info" class="main" style="visibility: hidden;">
+    <div id="stats">
+        <p>{L_TABS_PERMISSIONS} <br />{S_AUTH_LIST} </p> {LOGGED_IN_USER_LIST}
     </div>
-  </div>
 </div>
-<!-- END switch_user_logged_out -->
-
-
-<hr />
-
-<div class="topic-actions">
-	<div class="buttons">
-		<!-- BEGIN switch_user_authpost -->
-		<a href="{U_POST_NEW_TOPIC}" rel="nofollow"><img src="{POST_IMG}" class="{POST_IMG_CLASS}" alt="{L_POST_NEW_TOPIC}" /></a>&nbsp;&nbsp;&nbsp;
-		<!-- END switch_user_authpost -->
-
-		<!-- BEGIN switch_user_authreply -->
-		<a href="{U_POST_REPLY_TOPIC}"><img src="{REPLY_IMG}" class="i_reply" alt="{L_POST_REPLY_TOPIC}" /></a>
-		<!-- END switch_user_authreply -->
-	</div>
-
-	<div class="breadcrumbs">
-		<p><a class="nav" href="{U_INDEX}">{L_INDEX}</a>{NAV_SEP}<a class="nav" href="{U_ALBUM}">{L_ALBUM}</a>{NAV_CAT_DESC}</p>
-	</div>
-
-	<div class="pagination">
-		{PAGE_NUMBER}
-	</div>
-</div>
-<div class="clear"></div>
-
-<form action="{S_JUMPBOX_ACTION}" method="get" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
-<fieldset class="jumpbox">
-	<label>{L_JUMP_TO}:&nbsp;</label>
-	{S_JUMPBOX_SELECT}&nbsp;
-	<input class="button2" type="submit" value="{L_GO}" />
-</fieldset>
-</form>
-
-<!-- BEGIN viewtopic_bottom -->
-<form method="get" action="{S_FORM_MOD_ACTION}">
-<fieldset class="quickmod">
-	<input type="hidden" name="t" value="{TOPIC_ID}" />
-
-	<!-- <input type="hidden" name="sid" value="{S_SID}" /> -->
-	<input type="hidden" name="{SECURE_ID_NAME}" value="{SECURE_ID_VALUE}" />
-	<label>{L_MOD_TOOLS}:&nbsp;</label>
-	{S_SELECT_MOD}&nbsp;
-	<input class="button2" type="submit" value="{L_GO}" />
-</fieldset>
-</form>
-<div class="clear"></div>
-<p class="right">{S_TOPIC_ADMIN}</p>
-<!-- END viewtopic_bottom -->
-
-<!-- BEGIN show_permissions -->
-	<div class="title">{L_TABS_PERMISSIONS}</div>
-	{S_AUTH_LIST}
-<!-- END show_permissions -->
-
 <!-- BEGIN switch_image_resize -->
 <script type="text/javascript">
-//<![CDATA[
-$(resize_images({ 'selector' : '.postbody .content', 'max_width' : {switch_image_resize.IMG_RESIZE_WIDTH}, 'max_height' : {switch_image_resize.IMG_RESIZE_HEIGHT} }));
-//]]>
+    //
+    <
+    ![CDATA[$(resize_images({
+                'selector': '.post-entry .entry-content',
+                'max_width': {
+                    switch_image_resize.IMG_RESIZE_WIDTH
+                },
+                'max_height': {
+                    switch_image_resize.IMG_RESIZE_HEIGHT
+                }
+            }));
+            //]]>
 </script>
 <!-- END switch_image_resize -->
+<script src="{JS_DIR}addthis/addthis_widget.js" type="text/javascript"></script>
+<style>
+    /* Estilos para o contêiner do avatar */
+    .avatar-container {
+        float: left;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        /* Adiciona margem ao topo do contêiner do avatar */
+    }
 
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=forumotion" type="text/javascript"></script>
+    /* Estilos para a imagem do avatar */
+    .avatar-container .avatarredet a img {
+        height: 60px;
+        width: 60px;
+        padding: 1px;
+        border: 1px solid #D5D5D5;
+        background: white;
+        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ajustes para o conteúdo ao lado do avatar */
+    .ipsBox_withphoto {
+        margin-left: 70px;
+        /* Ajusta a margem esquerda para alinhar com o avatar */
+    }
+
+    /* Estilos para as estrelas de avaliação */
+    .titlebox .rating {
+        margin-top: 10px;
+        /* Ajusta a margem superior */
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    /* Estilos adicionais para as estrelas, se necessário */
+    .star {
+        cursor: pointer;
+        color: #ccc;
+        /* Cor inicial das estrelas */
+    }
+
+    .ipsType_pagetitle {
+        color: #323232;
+        display: block;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 26px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 300;
+        line-height: 1.4;
+        outline-style: none;
+        overflow: hidden;
+        text-align: left;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 525px;
+    }
+
+    .titlebox {
+        color: #414141;
+        overflow: hidden;
+        padding: 13px;
+        text-shadow: 0px 1px 0px #FFF;
+    }
+
+    .titlebox dd {
+        display: block;
+    }
+
+    .titlebox dava {
+        float: left;
+    }
+
+    .titlebox {
+        color: #414141;
+        overflow: hidden;
+        padding: 13px;
+        text-shadow: 0px 1px 0px #FFF !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .ipsBox_withphoto {
+        margin-left: 70px;
+    }
+
+    .PB-desc {
+        background-color: rgba(241, 246, 249, 0);
+        color: #777;
+        font-size: 11px;
+        margin-top: -17px;
+    }
+
+    .titlebox {
+        -moz-border-radius: 3px;
+        -moz-box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 4px;
+        -webkit-border-radius: 3px;
+        -webkit-box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 4px;
+        background: #EFEFEF;
+        border: 1px solid #D6D6D6;
+        border-radius: 3px;
+        box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 4px;
+        overflow: hidden;
+        padding: 10px;
+        text-shadow: #fff 0 1px 0
+    }
+
+    .titlebox dd {
+        display: block
+    }
+
+    .titlebox dava {
+        float: left
+    }
+
+    .titlebox dava a img {
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border: 1px solid #D5D5D5;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        float: left;
+        height: 50px !important;
+        padding: 1px;
+        width: 50px !important
+    }
+
+    .titlebox dava a img:hover {
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        border-color: #A1A1A1;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2)
+    }
+
+    .ipsType_pagetitle a {
+        font-size: 23px;
+        z-index: 999
+    }
+
+    .desc.lighter.blend_links {
+        color: #a4a4a4;
+        float: left;
+        font-size: 11px
+    }
+
+    .desc.lighter,
+    .desc.lighter.blend_links a {
+        color: #A4A4A4
+    }
+
+    .desc,
+    .desc.blend_links a,
+    p.posted_info {
+        color: #777;
+        font-size: 12px
+    }
+
+    .conect {
+        display: inline-block;
+        padding-left: 5px
+    }
+
+    .row2 {
+        border: 1px solid #565656 !important;
+        border-radius: 7px;
+        padding: 0;
+        background: url(https://2img.net/i/bl/spirale.png) no-repeat rgb(245, 245, 245);
+        color: #000;
+    }
+
+    .post_feature_box {
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 5px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 5px;
+        background-color: #F5F5F5;
+        background-image: linear-gradient(tobottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+        border: 1px solid #A5A5A5;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 1px 5px;
+        color: #3D3D3D;
+        font-size: 11.4px;
+        line-height: 180%;
+        margin-top: 5px;
+        max-width: 100%;
+        min-height: 60px;
+        padding: 8px;
+        word-wrap: break-word;
+    }
+
+    .post_feature_box .userphoto {
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border: 1px solid #d5d5d5;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        float: left;
+        margin-right: 8px;
+        padding: 1px;
+    }
+
+    .post_feature_box .badge {
+        -moz-border-radius: 3px;
+        -moz-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 3px, rgba(255, 255, 255, 0.7) 0 1px 0;
+        -webkit-border-radius: 3px;
+        -webkit-box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 3px, rgba(255, 255, 255, 0.7) 0 1px 0;
+        background: #C7C7C7;
+        border-radius: 3px;
+        box-shadow: inset rgba(0, 0, 0, 0.2) 0 1px 3px, rgba(255, 255, 255, 0.7) 0 1px 0;
+        color: #fff;
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700 !important;
+        height: 15px;
+        line-height: 15px;
+        margin-right: 8px;
+        padding: 3px 9px;
+        text-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+        text-transform: uppercase;
+        vertical-align: middle;
+    }
+
+    .post_feature_box .best_post {
+        border-top: 1px solid #B5B5B5;
+        margin: 2px;
+    }
+
+    .post_feature_box .userphoto img {
+        height: 50px;
+        width: 50px;
+    }
+
+    #best-res {
+        background: #F5F5F5;
+        border: 1px solid #989898;
+        border-radius: 3px;
+        color: #777777;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 20px;
+        margin-top: -50px;
+        padding: 0 12px;
+        position: relative;
+        text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+    }
+
+    .posthead[id]+.postmain .entry-content p:not(:empty) {
+        background: #ffebc8 url(https://imgur.com/PIQA4LA.png) no-repeat 6px 10px;
+        border: 1px solid #ecc272;
+        color: #ac6328;
+        font-family: "Trebuchet MS", tahoma, helvetica, arial, sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 18px;
+        margin-top: 15px;
+        padding: 8px 8px 8px 28px;
+        text-shadow: #fffaf1 0 1px 0;
+    }
+
+    .entry-content p:not(:empty) br {
+        display: none;
+    }
+
+    a.user-row span strong {
+        font-weight: 100 !important;
+        color: #225985 !important;
+    }
+</style>
+<script>
+    jQuery(document).ready(function() {
+        var e = $(".post:first .postmain .postbody .user .user-ident .user-basic-info a img").attr("src");
+        $(".teste").attr("src", e);
+        e = jQuery(".post:first .postmain .postbody .user .user-ident .user-basic-info a").attr("href");
+        jQuery(".teste2").attr("href", e);
+        e = jQuery('.post:first h3 span[itemprop="name"]').html();
+        jQuery('span[itemprop="creator"]').html(e);
+        e = jQuery("span.data-post").html();
+        jQuery('span[itemprop="data_post"]').html(e)
+    });
+    var topicTitle, tags, tagsList, pageTitleElement, tagsTitle = document.querySelector('[data-role="editableTitle"]');
+    !tagsTitle || (tags = (topicTitle = tagsTitle.textContent).match(/[A-Za-z]{3,}/g)) && ((tagsList = document.createElement("ul")).className = "ipsTags ipsList_inline", tagsList.setAttribute("data-controller", "core.front.core.tagEditor"), tags.forEach(function(e) {
+        var t = document.createElement("li");
+        t.className = "ipsTags_deletable";
+        var n = document.createElement("a");
+        n.className = "ipsTag", n.title = "Find other content tagged with '" + e + "'", n.setAttribute("rel", "tag"), n.setAttribute("data-tag-label", e);
+        var a = document.createElement("span");
+        a.textContent = e, n.appendChild(a), t.appendChild(n), tagsList.appendChild(t)
+    }), (pageTitleElement = document.querySelector("h1.ipsType_pageTitle.ipsContained_container")) && pageTitleElement.parentNode.insertBefore(tagsList, pageTitleElement.nextSibling));
+    var contentElement, innerHTML, updatedHTML, infoContainer = document.querySelector(".ipsPageHeader__meta");
+    infoContainer ? (contentElement = infoContainer.querySelector(".ipsType_light")) ? (updatedHTML = (innerHTML = contentElement.innerHTML).replace(/&nbsp;»&nbsp;[^&]+&nbsp;»&nbsp;/, ""), contentElement.innerHTML = updatedHTML) : console.log("Element with class '.ipsType_light' not found.") : console.log("Element with class '.ipsPageHeader__meta' not found.");
+    const IPSAuthorTopic = document.querySelector("div.post");
+    if (IPSAuthorTopic) {
+        const i = IPSAuthorTopic.querySelector("span.author a span").textContent,
+            j = document.querySelectorAll("div.post");
+        j.forEach(e => {
+            if (e.querySelector("span.author a span").textContent === i && e !== IPSAuthorTopic) {
+                const t = e.querySelector("ul.ipsList_reset");
+                t && (t.style.display = "block")
+            }
+        })
+    } else console.log("Não foi possível encontrar o primeiro post.");
+</script>
