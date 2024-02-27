@@ -428,37 +428,6 @@ FAE.step = [
   },
 
   {
-    info : 'Getting template overall_header.html (mobile)',
-    type : 'GET',
-     url : FAE.raw + 'templates/mobile-version/overall_header.html',
-    func : function(d) {
-      FAE.step[FAE.index + 1].data.template = d;
-    }
-  },
-
-
-  {
-    info : 'Installing template overall_header.html (mobile)',
-    type : 'POST',
-     url : 'part=themes&sub=templates&mode=edit_main&extended_admin=1',
-    data : {
-             t : 1010,
-             l : 'mobile',
-      tpl_name : 'overall_header',
-        submit : 'Save'
-    }
-  },
-
-
-  {
-       info : 'Publishing template overall_header.html (mobile)',
-       type : 'PUBLISH',
-        tpl : 1010,
-     mobile : 1,
-  },
-
-
-  {
      info : 'Enabling custom templates',
      type : 'POST',
       url : 'mode=main&part=themes&sub=templates',
