@@ -228,15 +228,6 @@ FAE.step = [
   },
 
   {
-    info : 'Getting template memberlist_body.html',
-    type : 'GET',
-     url : FAE.raw + 'templates/general/memberlist_body.html',
-    func : function(d) {
-      FAE.step[FAE.index + 1].data.template = d;
-    }
-  },
-
-  {
     info : 'Getting template overall_footer_begin.html',
     type : 'GET',
      url : FAE.raw + 'templates/general/overall_footer_begin.html',
